@@ -160,6 +160,7 @@ export default function MangaWordle({onClickHome, user}) {
 
     const [guesses, setGuesses] = useState([])
 
+    const [isFinished, setIsFinished] = useState(false)
     const [isWon, setIsWon] = useState(false)
 
     const [gameAnswer, setGameAnswer] = useState(wordleAnswers[Math.floor(Math.random()* wordleAnswers.length)])
@@ -173,6 +174,7 @@ export default function MangaWordle({onClickHome, user}) {
     function newGame(){
         setNewGuessText('')
         setGuesses([])
+        setIsFinished(false)
         setIsWon(false)
         setKeyboardColor({
             a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
@@ -182,7 +184,13 @@ export default function MangaWordle({onClickHome, user}) {
 
     function handleWin(){
         setNewGuessText('')
+        setIsFinished(true)
         setIsWon(true)
+    }
+
+    function handleGiveUp(){
+        setNewGuessText('')
+        setIsFinished(true)
     }
     
     function handleChange(e){
@@ -254,14 +262,17 @@ export default function MangaWordle({onClickHome, user}) {
         <MainTitle />
         <BackButton onClick={onClickHome}/>
         <h2>Manga Wordle</h2>
-        <button disabled={guesses.length === 0} onClick={newGame}>New Game</button>
+        <button disabled={!isFinished} onClick={newGame}>New Game</button>
+        <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>
         {user ? <p>Unique games won: 0</p> : false}
         <p>{isWon ? `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!` : false }</p>
+        <p>{(isFinished && !isWon) ? `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!` : false }</p>
         {guesses.map((guess, idx) => <WordleGuess key={idx} guess={guess} answer={gameAnswer.answer}/>)}
         <WordleDuringInput text={newGuessText}/>
 
-        <input value={newGuessText}  hidden={isWon} onChange={handleChange} onKeyDown={handleEnter} type="text" />
+        <input value={newGuessText}  hidden={isFinished} onChange={handleChange} onKeyDown={handleEnter} type="text" />
+        <span hidden={!(newGuessText.length === 5)}>⏎</span>
         <WordleKeyboard keyboardColor={keyboardColor}/>
 
 
