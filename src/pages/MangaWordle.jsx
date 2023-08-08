@@ -4,6 +4,7 @@ import MainTitle from "../components/MainTitle";
 import WordleGuess from "../components/WordleGuess";
 import WordleDuringInput from "../components/WordleDuringInput";
 import WordleKeyboard from "../components/WordleKeyboard";
+import DisplayManga from "../components/DisplayManga";
 
 const wordleAnswers = [
     {
@@ -171,6 +172,7 @@ export default function MangaWordle({onClickHome, user}) {
 
 
 
+
     function newGame(){
         setNewGuessText('')
         setGuesses([])
@@ -202,8 +204,7 @@ export default function MangaWordle({onClickHome, user}) {
     }
 
     function handleEnter(e){
-        if (e.keyCode === 13) { 
-            console.log('Enter key pressed')
+        if (e.keyCode === 13) {
             if (newGuessText.length === 5){
                 setGuesses([...guesses, newGuessText])
                 changeKeyboardColor(newGuessText)
@@ -218,8 +219,7 @@ export default function MangaWordle({onClickHome, user}) {
     function changeKeyboardColor(newGuessText){
         let guessArray = newGuessText.toUpperCase().split('')
         let answerArray = gameAnswer.answer.toUpperCase().split('')
-        console.log(guessArray)
-        console.log(answerArray)
+
         let displayColors = ['grey-letter','grey-letter','grey-letter','grey-letter','grey-letter']
     
         for (let i=0; i<5; i++){
@@ -239,7 +239,7 @@ export default function MangaWordle({onClickHome, user}) {
                 }
             }
         }
-    console.log(displayColors)
+
         for (let i=0; i<5; i++){
             if(displayColors[i] === 'green-letter'){
                 updateKeyboard(newGuessText[i].toLowerCase() , 'green-key')
@@ -266,12 +266,13 @@ export default function MangaWordle({onClickHome, user}) {
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>
         {user ? <p>Unique games won: 0</p> : false}
-        <p>{isWon ? `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!` : false }</p>
-        <p>{(isFinished && !isWon) ? `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!` : false }</p>
+        <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
+        <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
+        {/* {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>} */}
         {guesses.map((guess, idx) => <WordleGuess key={idx} guess={guess} answer={gameAnswer.answer}/>)}
         <WordleDuringInput text={newGuessText}/>
 
-        <input value={newGuessText}  hidden={isFinished} onChange={handleChange} onKeyDown={handleEnter} type="text" />
+        <input autoFocus value={newGuessText}  hidden={isFinished} onChange={handleChange} onKeyDown={handleEnter} type="text" />
         <span hidden={!(newGuessText.length === 5)}>⏎</span>
         <WordleKeyboard keyboardColor={keyboardColor}/>
 

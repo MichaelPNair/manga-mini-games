@@ -12,7 +12,7 @@ export default function DisplayManga({mangaId}) {
             .then(res => {
                 setMangaDetails(res.data)
             })
-
+ 
 
     }, [mangaId])
 
@@ -24,19 +24,11 @@ export default function DisplayManga({mangaId}) {
 
 
 
-    let mangaName = mangaDetails.data.attributes.title.en
-    let author = mangaDetails.data.relationships[0].attributes.name
-    let artist = mangaDetails.data.relationships[1].attributes.name
-    let coverId = mangaDetails.data.relationships[2].attributes.fileName
-
-    console.log(coverId)
-
-    let coverArtString = `https://uploads.mangadex.org/covers/${mangaDetails.data.id}/${coverId}.256.jpg`
-
     return <div>
-        <img src={coverArtString} alt="cover art" />
-        <p>Name: {mangaName}</p>
-        <p>Author: {author}</p>
-        <p>Artist: {artist}</p>
+        <img src={`https://uploads.mangadex.org/covers/${mangaId}/${mangaDetails.data.relationships[2].attributes.fileName}.256.jpg`} alt="cover art" />
+        {mangaDetails.data.attributes.title.en && <p>Title: {mangaDetails.data.attributes.title.en}</p>}
+        {mangaDetails.data.attributes.altTitles.en && <p>Alt title: {mangaDetails.data.attributes.altTitles.en}</p>}
+        <p>Author: {mangaDetails.data.relationships[0].attributes.name}</p>
+        <p>Artist: {mangaDetails.data.relationships[1].attributes.name}</p>
     </div>
 }
