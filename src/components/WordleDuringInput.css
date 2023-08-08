@@ -1,0 +1,25 @@
+.wordle-input-wrapper {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.wordle-input-wrapper .guess-letter {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+.wordle-input-wrapper .empty-letter {
+    display: flex;
+    width: 26px;
+    height: 26px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid blue;
+}

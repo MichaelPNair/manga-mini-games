@@ -3,6 +3,7 @@ import BackButton from "../components/BackButton";
 import MainTitle from "../components/MainTitle";
 import WordleGuess from "../components/WordleGuess";
 import WordleDuringInput from "../components/WordleDuringInput";
+import WordleKeyboard from "../components/WordleKeyboard";
 
 const wordleAnswers = [
     {
@@ -163,10 +164,19 @@ export default function MangaWordle({onClickHome, user}) {
 
     const [gameAnswer, setGameAnswer] = useState(wordleAnswers[Math.floor(Math.random()* wordleAnswers.length)])
 
+    const [keyboardColor, setKeyboardColor] = useState({
+        a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
+    })
+
+
+
     function newGame(){
         setNewGuessText('')
         setGuesses([])
         setIsWon(false)
+        setKeyboardColor({
+            a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
+        })
         setGameAnswer(wordleAnswers[Math.floor(Math.random()* wordleAnswers.length)])
     }
 
@@ -188,13 +198,55 @@ export default function MangaWordle({onClickHome, user}) {
             console.log('Enter key pressed')
             if (newGuessText.length === 5){
                 setGuesses([...guesses, newGuessText])
+                changeKeyboardColor(newGuessText)
                 setNewGuessText('')
                 if (newGuessText === gameAnswer.answer) {
                     handleWin()
                 }
             }
-
         }
+    }
+
+    function changeKeyboardColor(newGuessText){
+        let guessArray = newGuessText.toUpperCase().split('')
+        let answerArray = gameAnswer.answer.toUpperCase().split('')
+        console.log(guessArray)
+        console.log(answerArray)
+        let displayColors = ['grey-letter','grey-letter','grey-letter','grey-letter','grey-letter']
+    
+        for (let i=0; i<5; i++){
+            if (guessArray[i] === answerArray[i]){
+                displayColors[i] = 'green-letter'
+                guessArray[i] = ''
+                answerArray[i] = ''
+            }
+        }
+    
+        for (let i=0; i<5; i++){
+            if (displayColors[i] !== 'green-letter'){
+                if (answerArray.indexOf(guessArray[i]) !== -1){
+                    displayColors[i] = 'yellow-letter'
+                    answerArray[answerArray.indexOf(guessArray[i])] = ''
+                    guessArray[i] = ''
+                }
+            }
+        }
+    console.log(displayColors)
+        for (let i=0; i<5; i++){
+            if(displayColors[i] === 'green-letter'){
+                updateKeyboard(newGuessText[i].toLowerCase() , 'green-key')
+            }
+            if(displayColors[i] === 'yellow-letter'){
+                updateKeyboard(newGuessText[i].toLowerCase() , 'yellow-key')
+            }
+            if(displayColors[i] === 'grey-letter'){
+                updateKeyboard(newGuessText[i].toLowerCase() , 'grey-key')
+            }
+        } 
+    }
+
+    function updateKeyboard(letter, color){
+        setKeyboardColor(keyboard => ({...keyboard, [letter]: color}))
     }
 
 
@@ -210,6 +262,7 @@ export default function MangaWordle({onClickHome, user}) {
         <WordleDuringInput text={newGuessText}/>
 
         <input value={newGuessText}  hidden={isWon} onChange={handleChange} onKeyDown={handleEnter} type="text" />
+        <WordleKeyboard keyboardColor={keyboardColor}/>
 
 
     </div>

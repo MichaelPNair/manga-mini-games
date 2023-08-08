@@ -1,6 +1,6 @@
+import "./WordleGuess.css"
 
-
-export default function WordleGuess({guess, answer}) {
+export default function WordleGuess({guess, answer, onNewGuess}) {
 
     let guessArray = guess.toUpperCase().split('')
     let answerArray = answer.toUpperCase().split('')
@@ -24,7 +24,7 @@ export default function WordleGuess({guess, answer}) {
         }
     }
 
-    return <div>
+    return <div className="wordle-guess-wrapper">
         {displayColors.map((color, idx) => {
             return <div key={idx} className={color}>{guess[idx].toUpperCase()}</div>
         })}

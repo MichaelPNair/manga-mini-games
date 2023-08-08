@@ -1,0 +1,56 @@
+.wordle-keyboard .first-row{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.wordle-keyboard .second-row{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.wordle-keyboard .third-row{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.wordle-keyboard .plain-key {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    color: black;
+}
+
+.wordle-keyboard .green-key {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+}
+.wordle-keyboard .yellow-key {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgoldenrod;
+}
+.wordle-keyboard .grey-key {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}

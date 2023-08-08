@@ -1,3 +1,4 @@
+import "./WordleDuringInput.css"
 
 export default function WordleDuringInput({text}) {
 
