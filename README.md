@@ -14,7 +14,7 @@ This is a single page application done in HTML, CSS and Javascript with React an
 * Login: You can create a user and login to keep the database keep track of how many unique games you have won in each minigame.
 * Manga Wordle: Play a Wordle like game where you guess the mystery 5 letter word. If you correctly guess the word or give up, you will be shown details of a manga that has that word.
 * Guess the Manga: You will have to guess a mystery manga by typing in its title. If you get it wrong, you will see what details of the manga you typed match the mystery manga.
-* Manga Doku: You will be presented with a 3x3 grid and will have to enter manga that you believe match the criteria given for each square.
+* Manga Doku: You will be presented with a 3x3 grid and will have to enter manga that you believe match the criteria given for each square. (Currently not enabled)
 
 ## About me
 
@@ -30,7 +30,6 @@ This is a single page application done in HTML, CSS and Javascript with React an
 
 ### Guess the Manga
 
-### Manga Doku
 
 
 ## Future Improvements

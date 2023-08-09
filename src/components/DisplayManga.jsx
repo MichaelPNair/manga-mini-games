@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import "./DisplayManga.css"
 
 
 export default function DisplayManga({mangaId}) {
@@ -8,27 +9,60 @@ export default function DisplayManga({mangaId}) {
 
     useEffect(() => {
 
-        axios.get(`https://api.mangadex.org/manga/a1c7c817-4e59-43b7-9365-09675a149a6f?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author&includes%5B%5D=artist`)
+        axios.get(`https://api.mangadex.org/manga/${mangaId}?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author&includes%5B%5D=artist`)
             .then(res => {
+
                 setMangaDetails(res.data)
+                console.log(res.data)
             })
  
 
     }, [mangaId])
 
+    let title 
+    let authors
+    let artists
+    let coverId
+    let altTitles
 
-    // console.log(mangaDetails.data.relationships[2].attributes)
-    console.log(mangaId)
-    console.log(mangaDetails)
+    if (mangaDetails) {
+        title = mangaDetails.data.attributes.title.en
+        authors = mangaDetails.data.relationships
+            .filter(relationship => relationship.type === 'author')
+            .map(relationship => relationship.attributes.name)
+            .join(', ')
+
+        artists = mangaDetails.data.relationships
+        .filter(relationship => relationship.type === 'artist')
+        .map(relationship => relationship.attributes.name)
+        .join(', ')
+
+        altTitles = mangaDetails.data.attributes.altTitles
+            .filter(title => title['en'] !== undefined)
+
+        coverId = mangaDetails.data.relationships
+            .filter(relationship => relationship.type === 'cover_art')[0].attributes.fileName
+
+        console.log(altTitles)
+    }
 
 
 
 
-    return <div>
-        <img src={`https://uploads.mangadex.org/covers/${mangaId}/${mangaDetails.data.relationships[2].attributes.fileName}.256.jpg`} alt="cover art" />
-        {mangaDetails.data.attributes.title.en && <p>Title: {mangaDetails.data.attributes.title.en}</p>}
-        {mangaDetails.data.attributes.altTitles.en && <p>Alt title: {mangaDetails.data.attributes.altTitles.en}</p>}
-        <p>Author: {mangaDetails.data.relationships[0].attributes.name}</p>
-        <p>Artist: {mangaDetails.data.relationships[1].attributes.name}</p>
+    return <div className="display-manga-area">
+        {
+            mangaDetails &&
+            <section className="display-manga-section">
+                <img src={`https://uploads.mangadex.org/covers/${mangaId}/${coverId}.256.jpg`} alt="cover art" /> 
+                <div className="manga-section-right-box">
+                    <p>Title: {title}</p>
+                    {altTitles.length > 0 && <p>Alt Title: {altTitles[0].en}</p>}
+                    <p>Author: {authors}</p>
+                    <p>Artist: {artists}</p>
+                    <p>Description: {mangaDetails.data.attributes.description.en}</p>
+                </div>
+            </section>
+           
+        }
     </div>
 }

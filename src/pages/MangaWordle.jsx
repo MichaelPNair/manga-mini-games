@@ -150,6 +150,12 @@ const wordleAnswers = [
         id: 24,
         manga: 'Pluto',
         mangaId: 'e171c073-4415-499b-85bc-ea93825127ac'
+    },
+    {
+        answer: 'akira',
+        id: 25,
+        manga: 'Akira',
+        mangaId: '175cf215-2122-4656-9fac-37ac092438af'
     }
     
 ]
@@ -268,7 +274,7 @@ export default function MangaWordle({onClickHome, user}) {
         {user ? <p>Unique games won: 0</p> : false}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
-        {/* {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>} */}
+        {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
         {guesses.map((guess, idx) => <WordleGuess key={idx} guess={guess} answer={gameAnswer.answer}/>)}
         <WordleDuringInput text={newGuessText}/>
 

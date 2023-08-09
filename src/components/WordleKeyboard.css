@@ -4,6 +4,8 @@
     color: white;
     margin-top: 10px;
     margin-bottom: 10px;
+    gap: 3px
+
 }
 
 .wordle-keyboard .second-row{
@@ -11,6 +13,7 @@
     justify-content: center;
     color: white;
     margin-bottom: 10px;
+    gap: 3px;
 }
 
 .wordle-keyboard .third-row{
@@ -18,6 +21,7 @@
     justify-content: center;
     color: white;
     margin-bottom: 10px;
+    gap: 3px;
 }
 
 .wordle-keyboard .plain-key {

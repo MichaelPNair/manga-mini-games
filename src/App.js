@@ -46,8 +46,8 @@ function App() {
         return <HomePage onClickGuess={toGuessPage} onClickDoku={toDokuPage} onClickWordle={toWordlePage}/>;
       case 'Guess':
         return <GuessTheManga onClickHome={toHomePage} user={user}/>;
-      case 'Doku':
-        return <MangaDoku onClickHome={toHomePage} user={user}/>;
+      // case 'Doku':
+      //   return <MangaDoku onClickHome={toHomePage} user={user}/>;
       case 'Wordle':
         return <MangaWordle onClickHome={toHomePage} />;
       case 'Login':
