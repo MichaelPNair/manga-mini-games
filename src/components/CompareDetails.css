@@ -1,0 +1,17 @@
+.guess-details-row {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+.guess-details-row .no-match{
+    background-color: red;
+}
+
+.guess-details-row .part-match{
+    background-color: orange;
+}
+
+.guess-details-row .match{
+    background-color: green;
+}

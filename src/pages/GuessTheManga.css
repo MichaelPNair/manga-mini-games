@@ -1,0 +1,5 @@
+.details-headings {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}

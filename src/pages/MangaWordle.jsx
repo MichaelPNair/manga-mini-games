@@ -181,7 +181,7 @@ export default function MangaWordle({onClickHome, user}) {
 
 
 
-    function newGame(){
+    function handleNewGame(){
         setNewGuessText('')
         setGuesses([])
         setIsFinished(false)
@@ -295,7 +295,7 @@ export default function MangaWordle({onClickHome, user}) {
         <MainTitle />
         <BackButton onClick={onClickHome}/>
         <h2>Manga Wordle</h2>
-        <button disabled={!isFinished} onClick={newGame}>New Game</button>
+        <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>
         {user ? <p>Unique games won: 0</p> : false}

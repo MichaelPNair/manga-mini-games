@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BackButton from "../components/BackButton";
 import MainTitle from "../components/MainTitle";
 import axios from "axios";
 import CompareDetails from "../components/CompareDetails";
+import './GuessTheManga.css'
+import DisplayManga from "../components/DisplayManga";
 
 
 const mangaAnswers = [
@@ -140,11 +142,14 @@ export default function GuessTheManga({onClickHome, user}) {
 
     const [answerDetails, setAnswerDetails] = useState(null)
 
-    const [guessDetails, setGuessDetails] = useState(null)
-
     const [newguessId, setNewGuessId] = useState('')
 
     const [guesses, setGuesses] = useState([])
+
+    const [isFinished, setIsFinished] = useState(false)
+    const [isWon, setIsWon] = useState(false)
+
+    const inputRef = useRef(null)
 
     useEffect(() => {
 
@@ -161,7 +166,7 @@ export default function GuessTheManga({onClickHome, user}) {
     let title 
     let authors
     let artists
-    let coverId
+
     let publicationDemographic
     let status
     let year
@@ -178,10 +183,12 @@ export default function GuessTheManga({onClickHome, user}) {
         .filter(relationship => relationship.type === 'artist')
         .map(relationship => relationship.attributes.name)
 
-        coverId = answerDetails.data.relationships
-            .filter(relationship => relationship.type === 'cover_art')[0].attributes.fileName
+
 
         publicationDemographic = answerDetails.data.attributes.publicationDemographic
+        if (publicationDemographic === null) {
+            publicationDemographic = 'n/a'
+        }
         status = answerDetails.data.attributes.status
         year = answerDetails.data.attributes.year
             
@@ -201,21 +208,65 @@ export default function GuessTheManga({onClickHome, user}) {
     }
 
     function handleClick(){
-        setGuesses([...guesses, newguessId])
-        setNewGuessId('')
+        if (guesses.indexOf(newguessId) === -1){
+            setGuesses([...guesses, newguessId])
+            setNewGuessId('')
+        }
+        if (newguessId === gameAnswer.mangaId){
+            handleWin()
+        } else {
+            inputRef.current.focus()
+        }
     }
+
+    function handleNewGame() {
+        setNewGuessId('')
+        setGuesses([])
+        setIsFinished(false)
+        setIsWon(false)
+        setGameAnswer(mangaAnswers[Math.floor(Math.random()* mangaAnswers.length)])
+        inputRef.current.focus()
+    }
+
+    function handleWin(){
+        setNewGuessId('')
+        setIsFinished(true)
+        setIsWon(true)
+    }
+
+    function handleGiveUp(){
+        setNewGuessId('')
+        setIsFinished(true)
+    }
+
 
     return <div>
         <MainTitle />
         <BackButton onClick={onClickHome}/>
         <h2>Guess The Manga</h2>
+        <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
+        <button disabled={isFinished} onClick={handleGiveUp}>Give up</button>
         <p>What manga am I thinking of?</p>
         {user ? <p>Unique games won: 0</p> : false}
-        <input onChange={handleChange} value={newguessId} type="text" /><span>⏎</span>
-        <button onClick={handleClick}>Submit Guess</button>
-        <p>details of guesses, probably a component of its own</p>
-        <p>Cover Art, Title, Authors, Artists, Demographic, Status, Publication Year, Genres, Themes</p>
-        {guesses.length === 1 && <CompareDetails guessId={guesses.at(-1)} title={title} authors={authors} artists={artists} publicationDemographic={publicationDemographic} status={status} year={year} theme={theme} genre={genre}/>}
+        <p>{isWon && `Congratulations! The manga was ${title}!`}</p>
+        <p>{(isFinished && !isWon) && `Too bad! The manga was ${title}!`}</p>
+        <input autoFocus ref={inputRef} hidden={isFinished} onChange={handleChange} value={newguessId} type="text" /><span>⏎</span>
+        <button hidden={isFinished} onClick={handleClick}>Submit Guess</button>
+
+        {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
+        
+        <section className="details-headings">
+            <div>Title</div>
+            <div>Authors</div>
+            <div>Artists</div>
+            <div>Demographic</div>
+            <div>Status</div>
+            <div>Publication Year</div>
+            <div>Genres</div>
+            <div>Themes</div>
+        </section>
+        
+        {[...guesses].reverse().map((guess, idx) =>  <CompareDetails key={guess} guessId={guess} title={title} authors={authors} artists={artists} publicationDemographic={publicationDemographic} status={status} year={year} theme={theme} genre={genre}/>)}
 
 
     </div>
