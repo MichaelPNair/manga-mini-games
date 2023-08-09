@@ -165,7 +165,6 @@ export default function GuessTheManga({onClickHome, user}) {
     let publicationDemographic
     let status
     let year
-    let tags
     let theme
     let genre
 

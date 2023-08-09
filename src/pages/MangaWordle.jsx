@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import BackButton from "../components/BackButton";
 import MainTitle from "../components/MainTitle";
 import WordleGuess from "../components/WordleGuess";
@@ -176,6 +176,8 @@ export default function MangaWordle({onClickHome, user}) {
         a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
     })
 
+    const inputRef = useRef(null)
+
 
 
 
@@ -188,6 +190,7 @@ export default function MangaWordle({onClickHome, user}) {
             a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
         })
         setGameAnswer(wordleAnswers[Math.floor(Math.random()* wordleAnswers.length)])
+        inputRef.current.focus()
     }
 
     function handleWin(){
@@ -206,6 +209,26 @@ export default function MangaWordle({onClickHome, user}) {
             setNewGuessText(e.target.value)
         } else {
             setNewGuessText(e.target.value.slice(0,5))
+        }
+    }
+
+    function onKeyboardClick(e){
+        if (newGuessText.length < 5){
+            setNewGuessText(text => text + e.target.innerText.toLowerCase())
+            inputRef.current.focus()
+        }
+    }
+
+    function handleSymbolClick(){
+        if (newGuessText.length === 5){
+            setGuesses([...guesses, newGuessText])
+            changeKeyboardColor(newGuessText)
+            setNewGuessText('')
+            if (newGuessText === gameAnswer.answer) {
+                handleWin()
+            } else {
+                inputRef.current.focus()
+            }
         }
     }
 
@@ -247,14 +270,18 @@ export default function MangaWordle({onClickHome, user}) {
         }
 
         for (let i=0; i<5; i++){
-            if(displayColors[i] === 'green-letter'){
-                updateKeyboard(newGuessText[i].toLowerCase() , 'green-key')
+            if(displayColors[i] === 'grey-letter' && keyboardColor[newGuessText[i].toLowerCase()] === 'plain-key'){
+                updateKeyboard(newGuessText[i].toLowerCase() , 'grey-key')
             }
-            if(displayColors[i] === 'yellow-letter'){
+        }
+        for (let i=0; i<5; i++){
+            if(displayColors[i] === 'yellow-letter' && !(keyboardColor[newGuessText[i].toLowerCase()] === 'green-key')){
                 updateKeyboard(newGuessText[i].toLowerCase() , 'yellow-key')
             }
-            if(displayColors[i] === 'grey-letter'){
-                updateKeyboard(newGuessText[i].toLowerCase() , 'grey-key')
+        } 
+        for (let i=0; i<5; i++){
+            if(displayColors[i] === 'green-letter'){
+                updateKeyboard(newGuessText[i].toLowerCase() , 'green-key')
             }
         } 
     }
@@ -276,11 +303,11 @@ export default function MangaWordle({onClickHome, user}) {
         <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
         {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
         {guesses.map((guess, idx) => <WordleGuess key={idx} guess={guess} answer={gameAnswer.answer}/>)}
-        <WordleDuringInput text={newGuessText}/>
+        {!isFinished && <WordleDuringInput text={newGuessText}/>}
 
-        <input autoFocus value={newGuessText}  hidden={isFinished} onChange={handleChange} onKeyDown={handleEnter} type="text" />
-        <span hidden={!(newGuessText.length === 5)}>⏎</span>
-        <WordleKeyboard keyboardColor={keyboardColor}/>
+        <input autoFocus ref={inputRef} value={newGuessText}  hidden={isFinished} onChange={handleChange} onKeyDown={handleEnter} type="text" />
+        <span hidden={!(newGuessText.length === 5)} onClick={handleSymbolClick}>⏎</span>
+        <WordleKeyboard keyboardColor={keyboardColor} onClick={onKeyboardClick}/>
 
 
     </div>

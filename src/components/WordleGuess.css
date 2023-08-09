@@ -3,6 +3,7 @@
     justify-content: center;
     color: white;
     margin-bottom: 10px;
+    gap: 3px;
 }
 
 .wordle-guess-wrapper .green-letter {

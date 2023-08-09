@@ -13,7 +13,6 @@ export default function DisplayManga({mangaId}) {
             .then(res => {
 
                 setMangaDetails(res.data)
-                console.log(res.data)
             })
  
 
@@ -43,7 +42,7 @@ export default function DisplayManga({mangaId}) {
         coverId = mangaDetails.data.relationships
             .filter(relationship => relationship.type === 'cover_art')[0].attributes.fileName
 
-        console.log(altTitles)
+        
     }
 
 
