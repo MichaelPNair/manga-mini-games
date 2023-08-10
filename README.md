@@ -37,4 +37,5 @@ This is a single page application done in HTML, CSS and Javascript with React an
 * Improve style of webpage
 * Add animations to make games feel better
 * Move Wordle answers and color validation to a server to prevent it being visible in browser dev tools
+* Make games more colour blind friendly (eg. patterns instead of colours to indicate match)
 * Add ability to make players wait a day for the next game

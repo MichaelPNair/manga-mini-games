@@ -1,0 +1,6 @@
+.manga-search-item {
+    background-color: grey;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}

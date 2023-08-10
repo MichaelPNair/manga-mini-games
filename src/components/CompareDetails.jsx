@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import './CompareDetails.css'
+import ShowManyTags from "./ShowManyTags"
 
 
 export default function CompareDetails({guessId, title, authors, artists, publicationDemographic, status, year, theme, genre}) {
@@ -39,6 +40,11 @@ export default function CompareDetails({guessId, title, authors, artists, public
     let yearGuessMatch
     let themeGuessMatch
     let genreGuessMatch
+
+    let authorsGuessMatchArray
+    let aristsGuessMatchArray
+    let themeGuessMatchArray
+    let genreGuessMatchArray
 
     if (guessDetails) {
         titleGuess = guessDetails.data.attributes.title.en
@@ -84,6 +90,11 @@ export default function CompareDetails({guessId, title, authors, artists, public
         themeGuessMatch = checkArrays(theme, themeGuess)
         genreGuessMatch = checkArrays(genre, genreGuess)
 
+        authorsGuessMatchArray = authorsGuess.map(guess => authors.indexOf(guess) !== -1)
+        aristsGuessMatchArray = artistsGuess.map(guess => artists.indexOf(guess) !== -1)
+        themeGuessMatchArray = themeGuess.map(guess => theme.indexOf(guess) !== -1)
+        genreGuessMatchArray = genreGuess.map(guess => genre.indexOf(guess) !== -1)
+
         if (year > yearGuess) {
             yearGuess = `↑↑\n${yearGuess}`
         }
@@ -118,13 +129,13 @@ export default function CompareDetails({guessId, title, authors, artists, public
         {  guessDetails && 
         <section className="guess-details-row">
             <div className={titleGuessMatch}>{titleGuess}</div>
-            <div className={authorsGuessMatch}>{authorsGuess.join(', ')}</div>
-            <div className={artistsGuessMatch}>{artistsGuess.join(', ')}</div>
+            <div className={authorsGuessMatch}><ShowManyTags guessArray={authorsGuess} guessMatchArray={authorsGuessMatchArray}/></div>
+            <div className={artistsGuessMatch}><ShowManyTags guessArray={artistsGuess} guessMatchArray={aristsGuessMatchArray}/></div>
             <div className={publicationDemographicGuessMatch}>{publicationDemographicGuess}</div>
             <div className={statusGuessMatch}>{statusGuess}</div>
             <div className={yearGuessMatch}>{yearGuess}</div>
-            <div className={genreGuessMatch}>{genreGuess.join(', ')}</div>
-            <div className={themeGuessMatch}>{themeGuess.join(', ')}</div>
+            <div className={genreGuessMatch}><ShowManyTags guessArray={genreGuess} guessMatchArray={genreGuessMatchArray}/></div>
+            <div className={themeGuessMatch}><ShowManyTags guessArray={themeGuess} guessMatchArray={themeGuessMatchArray}/></div>
          </section>
 
         }

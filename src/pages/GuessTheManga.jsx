@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import BackButton from "../components/BackButton";
 import MainTitle from "../components/MainTitle";
 import axios from "axios";
 import CompareDetails from "../components/CompareDetails";
 import './GuessTheManga.css'
 import DisplayManga from "../components/DisplayManga";
+import MangaSearchBar from "../components/MangaSearchBar";
 
 
 const mangaAnswers = [
@@ -142,14 +143,14 @@ export default function GuessTheManga({onClickHome, user}) {
 
     const [answerDetails, setAnswerDetails] = useState(null)
 
-    const [newguessId, setNewGuessId] = useState('')
-
     const [guesses, setGuesses] = useState([])
 
     const [isFinished, setIsFinished] = useState(false)
     const [isWon, setIsWon] = useState(false)
 
-    const inputRef = useRef(null)
+    const [searchText, setSearchText] = useState('')
+    const [isMangaSelected, setIsMangaSelected] = useState(false)
+
 
     useEffect(() => {
 
@@ -157,7 +158,7 @@ export default function GuessTheManga({onClickHome, user}) {
             .then(res => {
 
                 setAnswerDetails(res.data)
-                console.log(res.data)
+                // console.log(res.data)
             })
  
 
@@ -203,40 +204,45 @@ export default function GuessTheManga({onClickHome, user}) {
         .map(tag => tag.attributes.name.en)
     }
 
-    function handleChange(e){
-        setNewGuessId(e.target.value)
-    }
 
-    function handleClick(){
-        if (guesses.indexOf(newguessId) === -1){
-            setGuesses([...guesses, newguessId])
-            setNewGuessId('')
-        }
-        if (newguessId === gameAnswer.mangaId){
-            handleWin()
-        } else {
-            inputRef.current.focus()
-        }
-    }
 
     function handleNewGame() {
-        setNewGuessId('')
         setGuesses([])
         setIsFinished(false)
         setIsWon(false)
         setGameAnswer(mangaAnswers[Math.floor(Math.random()* mangaAnswers.length)])
-        inputRef.current.focus()
+        setSearchText('')
+        setIsMangaSelected(false)
     }
 
     function handleWin(){
-        setNewGuessId('')
         setIsFinished(true)
         setIsWon(true)
     }
 
     function handleGiveUp(){
-        setNewGuessId('')
         setIsFinished(true)
+    }
+
+    function submitGuess(newGuessId){
+        if (guesses.indexOf(newGuessId) === -1){
+            setGuesses([...guesses, newGuessId])
+        }
+        if (newGuessId === gameAnswer.mangaId){
+            handleWin()
+        }
+    }
+
+    function updateSearchText(text){
+        setSearchText(text)
+    }
+
+    function onSelectManga(){
+        setIsMangaSelected(true)
+    }
+
+    function onUnSelectManga(){
+        setIsMangaSelected(false)
     }
 
 
@@ -250,8 +256,9 @@ export default function GuessTheManga({onClickHome, user}) {
         {user ? <p>Unique games won: 0</p> : false}
         <p>{isWon && `Congratulations! The manga was ${title}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The manga was ${title}!`}</p>
-        <input autoFocus ref={inputRef} hidden={isFinished} onChange={handleChange} value={newguessId} type="text" /><span>⏎</span>
-        <button hidden={isFinished} onClick={handleClick}>Submit Guess</button>
+        <div hidden={isFinished}>
+            <MangaSearchBar onSubmit={submitGuess} searchText={searchText} isMangaSelected={isMangaSelected} updateSearchText={updateSearchText} onSelectManga={onSelectManga} onUnSelectManga={onUnSelectManga}/>
+        </div>
 
         {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
         

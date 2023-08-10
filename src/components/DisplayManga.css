@@ -21,3 +21,16 @@
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
+.display-manga-area .loading-manga-section {
+    display: flex;
+    justify-content: center;
+    background-color: darkslategray;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 150px;
+    width: 60%;
+    border-radius: 25px;
+    overflow: hidden;
+}

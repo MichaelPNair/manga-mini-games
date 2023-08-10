@@ -38,6 +38,8 @@ export default function DisplayManga({mangaId}) {
 
         altTitles = mangaDetails.data.attributes.altTitles
             .filter(title => title['en'] !== undefined)
+            .map(title => title.en)
+            .join(', ')
 
         coverId = mangaDetails.data.relationships
             .filter(relationship => relationship.type === 'cover_art')[0].attributes.fileName
@@ -50,18 +52,19 @@ export default function DisplayManga({mangaId}) {
 
     return <div className="display-manga-area">
         {
-            mangaDetails &&
+            mangaDetails ?
             <section className="display-manga-section">
                 <img src={`https://uploads.mangadex.org/covers/${mangaId}/${coverId}.256.jpg`} alt="cover art" /> 
                 <div className="manga-section-right-box">
                     <p>Title: {title}</p>
-                    {altTitles.length > 0 && <p>Alt Title: {altTitles[0].en}</p>}
+                    {altTitles.length > 0 && <p>Alt Title: {altTitles}</p>}
                     <p>Author: {authors}</p>
                     <p>Artist: {artists}</p>
                     <p>Description: {mangaDetails.data.attributes.description.en}</p>
                 </div>
             </section>
-           
+           :
+           <section className="loading-manga-section">Loading ...</section>
         }
     </div>
 }

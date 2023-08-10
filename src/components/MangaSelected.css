@@ -1,0 +1,15 @@
+.manga-selected {
+    background-color: grey;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer
+}
+
+.manga-selected .top-right-fake-close{
+    color: white;
+    position: absolute;
+    top: 7px;
+    right: 15px;
+    cursor: pointer;
+}

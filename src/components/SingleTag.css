@@ -1,0 +1,9 @@
+.single-tag .cis-tag{
+    background-color: red;
+    border-radius: 10px;
+}
+
+.single-tag .match-tag {
+    background-color: green;
+    border-radius: 10px;
+}
