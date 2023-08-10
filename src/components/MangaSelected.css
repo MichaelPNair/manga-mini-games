@@ -11,6 +11,8 @@
     position: relative;
     cursor: pointer;
     width: fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .manga-flex-handler .manga-selected:hover {
@@ -21,6 +23,6 @@
     color: white;
     position: absolute;
     top: 7px;
-    right: 15px;
+    right: 7px;
     cursor: pointer;
 }

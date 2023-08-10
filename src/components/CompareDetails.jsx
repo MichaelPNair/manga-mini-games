@@ -125,9 +125,9 @@ export default function CompareDetails({guessId, title, authors, artists, public
 
     }
     
-    return <div>
+    return <>
         {  guessDetails && 
-        <section className="guess-details-row">
+        <>
             <div className={titleGuessMatch}>{titleGuess}</div>
             <div className={authorsGuessMatch}><ShowManyTags guessArray={authorsGuess} guessMatchArray={authorsGuessMatchArray}/></div>
             <div className={artistsGuessMatch}><ShowManyTags guessArray={artistsGuess} guessMatchArray={aristsGuessMatchArray}/></div>
@@ -136,8 +136,8 @@ export default function CompareDetails({guessId, title, authors, artists, public
             <div className={yearGuessMatch}>{yearGuess}</div>
             <div className={genreGuessMatch}><ShowManyTags guessArray={genreGuess} guessMatchArray={genreGuessMatchArray}/></div>
             <div className={themeGuessMatch}><ShowManyTags guessArray={themeGuess} guessMatchArray={themeGuessMatchArray}/></div>
-         </section>
+         </>
 
         }
-    </div>
+    </>
 }

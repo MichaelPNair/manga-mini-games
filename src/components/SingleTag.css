@@ -1,12 +1,12 @@
 .single-tag .cis-tag{
-    background-color: red;
+    background-color: #b81d13;
     border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .single-tag .match-tag {
-    background-color: green;
+    background-color: #008450;
     border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;

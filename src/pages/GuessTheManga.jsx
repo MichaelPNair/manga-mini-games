@@ -262,18 +262,20 @@ export default function GuessTheManga({onClickHome, user}) {
 
         {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
         
-        <section className="details-headings">
-            <div>Title</div>
-            <div>Authors</div>
-            <div>Artists</div>
-            <div>Demographic</div>
-            <div>Status</div>
-            <div>Publication Year</div>
-            <div>Genres</div>
-            <div>Themes</div>
-        </section>
+        <div className="guesses-wrapper">
+            {guesses.length > 0 && <section className="guesses">
+                <div>Title</div>
+                <div>Authors</div>
+                <div>Artists</div>
+                <div>Demographic</div>
+                <div>Status</div>
+                <div>Publication Year</div>
+                <div>Genres</div>
+                <div>Themes</div>
+                {[...guesses].reverse().map((guess, idx) =>  <CompareDetails key={guess} guessId={guess} title={title} authors={authors} artists={artists} publicationDemographic={publicationDemographic} status={status} year={year} theme={theme} genre={genre}/>)}
+            </section>}
+        </div>
         
-        {[...guesses].reverse().map((guess, idx) =>  <CompareDetails key={guess} guessId={guess} title={title} authors={authors} artists={artists} publicationDemographic={publicationDemographic} status={status} year={year} theme={theme} genre={genre}/>)}
 
 
     </div>

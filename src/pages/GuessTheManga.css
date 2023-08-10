@@ -1,6 +1,12 @@
-.details-headings {
-    display: flex;
-    justify-content: center;
-    gap: 3px;
+.guesses-wrapper .guesses {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
     margin-top: 15px;
+    justify-content: start;
+}
+
+.guesses-wrapper {
+    width: 80%;
+    margin: auto;
 }

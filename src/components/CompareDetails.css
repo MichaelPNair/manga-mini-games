@@ -1,17 +1,21 @@
-.guess-details-row {
+
+.no-match{
+    background-color: #b81d13;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 3px;
 }
 
-.guess-details-row .no-match{
-    background-color: red;
+.part-match{
+    background-color: #efb700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.guess-details-row .part-match{
-    background-color: orange;
-}
-
-.guess-details-row .match{
-    background-color: green;
+.match{
+    background-color: #008450;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

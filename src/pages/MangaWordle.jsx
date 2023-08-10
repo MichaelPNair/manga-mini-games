@@ -5,6 +5,7 @@ import WordleGuess from "../components/WordleGuess";
 import WordleDuringInput from "../components/WordleDuringInput";
 import WordleKeyboard from "../components/WordleKeyboard";
 import DisplayManga from "../components/DisplayManga";
+import './MangaWordle.css'
 
 const wordleAnswers = [
     {
@@ -306,7 +307,7 @@ export default function MangaWordle({onClickHome, user}) {
         {!isFinished && <WordleDuringInput text={newGuessText}/>}
 
         <input autoFocus ref={inputRef} value={newGuessText}  hidden={isFinished} onChange={handleChange} onKeyDown={handleEnter} type="text" />
-        <span hidden={!(newGuessText.length === 5)} onClick={handleSymbolClick}>⏎</span>
+        <span hidden={!(newGuessText.length === 5)} onClick={handleSymbolClick} className="enter-symbol">⏎</span>
         <WordleKeyboard keyboardColor={keyboardColor} onClick={onKeyboardClick}/>
 
 
