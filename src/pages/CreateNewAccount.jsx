@@ -2,6 +2,7 @@ import MainTitle from "../components/MainTitle";
 import BackButton from "../components/BackButton";
 import { useState } from "react";
 import axios from "axios";
+import './CreateNewAccount.css'
 
 export default function CreateNewAccount({onClickHome, toLoginPage}) {
 
@@ -29,16 +30,22 @@ export default function CreateNewAccount({onClickHome, toLoginPage}) {
         })
     }
 
-    return <div>
+    return <div className="create-new-account-page">
         <MainTitle />
         <BackButton onClick={onClickHome}/>
         <h2>Create New Account</h2>
         {error && <p>{error}</p>}
         <form onSubmit={onSubmit} action="">
-        <label>Username</label>
-            <input onChange={handleChange} value={formData.username} name="username" type="text" />
-            <label>Password</label>
-            <input onChange={handleChange} value={formData.password} name="password" type="password" />
+            <div className="form-wrapper">
+                <div>
+                    <label>Username</label>
+                    <input onChange={handleChange} value={formData.username} name="username" type="text" />
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input onChange={handleChange} value={formData.password} name="password" type="password" />
+                </div>
+            </div>
             <button>Create</button>
         </form>
 

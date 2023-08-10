@@ -1,0 +1,10 @@
+.login-page input{
+    margin-left: 15px;
+}
+
+.login-page .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}

@@ -2,6 +2,7 @@ import MainTitle from "../components/MainTitle";
 import BackButton from "../components/BackButton";
 import { useState } from "react";
 import axios from "axios";
+import './Login.css'
 
 
 export default function Login({onClickHome, onLogin}) {
@@ -34,17 +35,23 @@ export default function Login({onClickHome, onLogin}) {
             })
     }
 
-    return <div>
+    return <div className="login-page">
         <MainTitle />
         <BackButton onClick={onClickHome}/>
         <h2>Login</h2>
         {error && <p>{error}</p>}
         <form onSubmit={handleSubmit} action="">
-            <label>Username</label>
-            <input onChange={handleChange} value={formData.username} name="username" type="text" />
-            <label>Password</label>
-            <input onChange={handleChange} value={formData.password} name="password" type="password" />
-            <button>Login</button>
+            <div className="form-wrapper">
+                <div>
+                    <label>Username</label>
+                    <input onChange={handleChange} value={formData.username} name="username" type="text" />
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input onChange={handleChange} value={formData.password} name="password" type="password" />
+                </div>
+            </div>
+            <button>Create</button>
         </form>
 
     </div>
