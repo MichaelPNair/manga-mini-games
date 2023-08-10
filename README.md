@@ -46,37 +46,37 @@ There is no limit on the number of guesses you can try.
 
 ## Screenshots
 ### Initial Screen
-![Screenshot of initial screen](/screenshots/InitialScreen.png)
+![Screenshot of initial screen](/Screenshots/InitialScreen.png)
 
 ### Login Screen
-![Screenshot of login screen](/screenshots/LoginScreen.png)
+![Screenshot of login screen](/Screenshots/LoginScreen.png)
 
 ### Manga Wordle Initial Screen
-![Screenshot of initial screen for Manga Wordle](/screenshots/MangaWordleInitial.png)
+![Screenshot of initial screen for Manga Wordle](/Screenshots/MangaWordleInitial.png)
 
 ### Manga Wordle In Progress
-![Screenshot of Manga Wordle in progress](/screenshots/MangaWordleProgress.png)
+![Screenshot of Manga Wordle in progress](/Screenshots/MangaWordleProgress.png)
 
 ### Manga Wordle Victory Screen
-![Screenshot of Manga Wordle Victory screen](/screenshots/MangaWordleVictory.png)
+![Screenshot of Manga Wordle Victory screen](/Screenshots/MangaWordleVictory.png)
 
 ### Manga Wordle Defeat Screen
-![Screenshot of Manga Wordle Defeat screen](/screenshots/MangaWordleGiveUp.png)
+![Screenshot of Manga Wordle Defeat screen](/Screenshots/MangaWordleGiveUp.png)
 
 ### Guess the Manga Initial Screen
-![Screenshot of Guess The Manga initial screen](/screenshots/GuessTheMangaInitial.png)
+![Screenshot of Guess The Manga initial screen](/Screenshots/GuessTheMangaInitial.png)
 
 ### Guess the Manga Search for Manga Titles
-![Screenshot of searching for Manga titles in Guess The Manga](/screenshots/GuessTheMangaSearch.png)
+![Screenshot of searching for Manga titles in Guess The Manga](/Screenshots/GuessTheMangaSearch.png)
 
 ### Guess the Manga with guess
-![Screenshot of Guess the Manga with 1 guess](/screenshots/GuessTheMangaGuess.png)
+![Screenshot of Guess the Manga with 1 guess](/Screenshots/GuessTheMangaGuess.png)
 
 ### Guess the Manga Victory Screen
-![Screenshot of Guess the Manga Victory screen](/screenshots/GuessTheMangaVictory.png)
+![Screenshot of Guess the Manga Victory screen](/Screenshots/GuessTheMangaVictory.png)
 
 ### Guess the Manga Defeat Screen
-![Screenshot of Guess the Manga Defeat screen](/screenshots/GuessTheMangaGiveUp.png)
+![Screenshot of Guess the Manga Defeat screen](/Screenshots/GuessTheMangaGiveUp.png)
 
 
 
