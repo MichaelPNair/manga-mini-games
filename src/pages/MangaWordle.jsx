@@ -292,13 +292,13 @@ export default function MangaWordle({onClickHome, user}) {
 
 
     return <div>
-        <MainTitle />
+        <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
         <h2>Manga Wordle</h2>
         <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>
-        {user ? <p>Unique games won: 0</p> : false}
+        {user ? <p>You have won 0 times</p> : false}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
         {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}

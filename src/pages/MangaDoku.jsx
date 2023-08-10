@@ -9,7 +9,7 @@ export default function MangaDoku({onClickHome, user}) {
         <BackButton onClick={onClickHome}/>
         <h2>Manga-Doku</h2>
         <p>Find manga that match the catgories</p>
-        {user ? <p>Unique games won: 0</p> : false}
+        {user ? <p>Games won: 0</p> : false}
         <p>Place grid here</p>
         <input type="text" />
 

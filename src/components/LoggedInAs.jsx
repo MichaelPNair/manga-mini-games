@@ -1,9 +1,15 @@
-export default function LoggedInAs({onClickLogin, onClickCreateUser}) {
+export default function LoggedInAs({onClickLogin, onClickCreateUser, onLogout, user}) {
 
     return <div>
-        <button onClick={onClickLogin}>Login</button>
-        <button onClick={onClickCreateUser}>Create New Account</button>
-        <span>Logged in as: </span>
-        <button>Logout</button>
+        {!user && <>
+            <button onClick={onClickLogin}>Login</button>
+            <button onClick={onClickCreateUser}>Create New Account</button>
+        </>
+        }
+        {user && <>
+            <span>Logged in as: {user.username}</span>
+            <button onClick={onLogout}>Logout</button>
+        </>
+        }
     </div>
 }

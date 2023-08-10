@@ -1,12 +1,23 @@
-.manga-selected {
+
+.manga-flex-handler {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.manga-flex-handler .manga-selected {
     background-color: grey;
     color: white;
     border-radius: 10px;
     position: relative;
-    cursor: pointer
+    cursor: pointer;
+    width: fit-content;
 }
 
-.manga-selected .top-right-fake-close{
+.manga-flex-handler .manga-selected:hover {
+    background-color: darkgray;
+}
+
+.manga-flex-handler .manga-selected .top-right-fake-close{
     color: white;
     position: absolute;
     top: 7px;

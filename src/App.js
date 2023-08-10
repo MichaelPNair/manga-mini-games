@@ -3,18 +3,27 @@ import { useState } from 'react';
 import './App.css';
 import HomePage from './pages/HomePage';
 import GuessTheManga from './pages/GuessTheManga';
-import MangaDoku from './pages/MangaDoku';
+// import MangaDoku from './pages/MangaDoku';
 import MangaWordle from './pages/MangaWordle';
 import Login from './pages/Login';
 import CreateNewAccount from './pages/CreateNewAccount';
 import LoggedInAs from './components/LoggedInAs';
-import DisplayManga from './components/DisplayManga';
+import { getUser } from './utils/users_service';
 
 function App() {
 
   const [currentPage, setCurrentPage] = useState('Home')
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(getUser())
+
+  function login(user){
+    setUser(user)
+  }
+
+  function logout() {
+    localStorage.removeItem('token')
+    setUser(null)
+  }
 
   function toHomePage(){
     setCurrentPage('Home')
@@ -43,17 +52,17 @@ function App() {
   function renderSwitch(param) {
     switch(param) {
       case 'Home':
-        return <HomePage onClickGuess={toGuessPage} onClickDoku={toDokuPage} onClickWordle={toWordlePage}/>;
+        return <HomePage onClickGuess={toGuessPage} onClickDoku={toDokuPage} onClickWordle={toWordlePage} user={user}/>;
       case 'Guess':
         return <GuessTheManga onClickHome={toHomePage} user={user}/>;
       // case 'Doku':
       //   return <MangaDoku onClickHome={toHomePage} user={user}/>;
       case 'Wordle':
-        return <MangaWordle onClickHome={toHomePage} />;
+        return <MangaWordle onClickHome={toHomePage} user={user}/>;
       case 'Login':
-        return <Login onClickHome={toHomePage} />;
+        return <Login onClickHome={toHomePage} onLogin={login}/>;
       case 'CreateUser':
-        return <CreateNewAccount onClickHome={toHomePage} />;
+        return <CreateNewAccount onClickHome={toHomePage} toLoginPage={toLoginPage}/>;
       default:
         return <HomePage />;
     }
@@ -61,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <LoggedInAs onClickLogin={toLoginPage} onClickCreateUser={toCreateUserPage}/>
+      <LoggedInAs onClickLogin={toLoginPage} onClickCreateUser={toCreateUserPage} onLogout={logout} user={user}/>
       {renderSwitch(currentPage)}
 
 

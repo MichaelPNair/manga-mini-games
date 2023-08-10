@@ -4,3 +4,7 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.manga-search-item:hover {
+    background-color: darkgrey;
+}

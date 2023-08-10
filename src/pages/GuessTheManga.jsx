@@ -247,13 +247,13 @@ export default function GuessTheManga({onClickHome, user}) {
 
 
     return <div>
-        <MainTitle />
+        <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
         <h2>Guess The Manga</h2>
         <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give up</button>
         <p>What manga am I thinking of?</p>
-        {user ? <p>Unique games won: 0</p> : false}
+        {user ? <p>You have won 0 times</p> : false}
         <p>{isWon && `Congratulations! The manga was ${title}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The manga was ${title}!`}</p>
         <div hidden={isFinished}>
