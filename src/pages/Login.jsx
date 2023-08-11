@@ -25,7 +25,6 @@ export default function Login({onClickHome, onLogin}) {
         axios.post('/api/login', formData)
             .then(res => {
                 let token = res.data
-                console.log(token)
                 localStorage.setItem("token", token)
                 onLogin(formData)
             })

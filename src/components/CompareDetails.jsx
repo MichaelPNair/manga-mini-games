@@ -14,7 +14,7 @@ export default function CompareDetails({guessId, title, authors, artists, public
             .then(res => {
 
                 setGuessDetails(res.data)
-                console.log(res.data)
+                // console.log(res.data)
             })
     }, [guessId])
 

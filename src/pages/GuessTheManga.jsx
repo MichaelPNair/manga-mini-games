@@ -161,6 +161,7 @@ export default function GuessTheManga({onClickHome, user}) {
             .then(res => {
 
                 setAnswerDetails(res.data)
+                console.log(res.data)
             })
  
 
