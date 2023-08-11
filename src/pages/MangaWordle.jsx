@@ -158,6 +158,90 @@ const wordleAnswers = [
         id: 25,
         manga: 'Akira',
         mangaId: '175cf215-2122-4656-9fac-37ac092438af'
+    },
+    {
+        answer: 'stone',
+        id: 26,
+        manga: 'Dr. Stone',
+        mangaId: 'cfc3d743-bd89-48e2-991f-63e680cc4edf'
+    },
+    {
+        answer: 'ocean',
+        id: 27,
+        manga: 'Jojos bizzare adventure stone ocean',
+        mangaId: 'ea57752d-acb7-469e-aa60-43e694ded9a9'
+    },
+    {
+        answer: 'north',
+        id: 28,
+        manga: 'Fist of the North Star',
+        mangaId: '75251a47-952c-4e38-b1c6-3572b9bfd481'
+    },
+    {
+        answer: 'conan',
+        id: 29,
+        manga: 'Detective Conan',
+        mangaId: '7f30dfc3-0b80-4dcc-a3b9-0cd746fac005'
+    },
+    {
+        answer: 'metal',
+        id: 30,
+        manga: 'Fullmetal Alchemist',
+        mangaId: 'dd8a907a-3850-4f95-ba03-ba201a8399e3'
+    },
+    {
+        answer: 'fairy',
+        id: 31,
+        manga: 'Fairy Tail',
+        mangaId: '227e3f72-863f-46f9-bafe-c43104ca29ee'
+    },
+    {
+        answer: 'major',
+        id: 32,
+        manga: 'Major',
+        mangaId: '491aba94-e971-4911-8a93-0b1200403f4b'
+    },
+    {
+        answer: 'glass',
+        id: 33,
+        manga: 'Glass Mask',
+        mangaId: '51fe4713-013a-4acc-8874-bfd01b60eff9'
+    },
+    {
+        answer: 'saint',
+        id: 34,
+        manga: 'Saint Seiya',
+        mangaId: '67bc662a-dba4-4616-9da0-fa0e18e87383'
+    },
+    {
+        answer: 'crest',
+        id: 35,
+        manga: 'Crest of the Royal Family',
+        mangaId: 'a0861345-be1a-4f4d-97bb-6310b91cb32b'
+    },
+    {
+        answer: 'slump',
+        id: 36,
+        manga: 'dr Slump',
+        mangaId: '985e4ae6-7a36-42c5-ae12-f4291c58798c'
+    },
+    {
+        answer: 'index',
+        id: 37,
+        manga: 'A Certain Magical Index',
+        mangaId: '229e5177-2e71-4642-bd56-a9b0b0ba0e60'
+    },
+    {
+        answer: 'space',
+        id: 38,
+        manga: 'Space Brothers',
+        mangaId: 'a437129d-18e9-48d7-9484-9fb9b9073ddd'
+    },
+    {
+        answer: 'happy',
+        id: 39,
+        manga: 'happy!',
+        mangaId: 'd670572b-d21a-474c-a03d-7ec50bd53030'
     }
     
 ]
