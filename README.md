@@ -88,4 +88,6 @@ There is no limit on the number of guesses you can try.
 * Toggle to show or hide current game Id
 * Move Wordle answers and color validation to a server to prevent it being visible in browser dev tools
 * Make games more colour blind friendly (eg. patterns instead of colours to indicate match)
+* Change home page buttons to pictures of the games
+* Add donate page
 * Add ability to make players wait a day for the next game

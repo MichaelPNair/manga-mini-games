@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className="App">
-      <LoggedInAs onClickLogin={toLoginPage} onClickCreateUser={toCreateUserPage} onLogout={logout} user={user}/>
+      {/* <LoggedInAs onClickLogin={toLoginPage} onClickCreateUser={toCreateUserPage} onLogout={logout} user={user}/> */}
       {renderSwitch(currentPage)}
 
 
