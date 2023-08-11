@@ -18,6 +18,7 @@ function App() {
 
   function login(user){
     setUser(user)
+    setCurrentPage('Home')
   }
 
   function logout() {

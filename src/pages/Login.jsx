@@ -51,7 +51,7 @@ export default function Login({onClickHome, onLogin}) {
                     <input onChange={handleChange} value={formData.password} name="password" type="password" />
                 </div>
             </div>
-            <button>Create</button>
+            <button>Login</button>
         </form>
 
     </div>

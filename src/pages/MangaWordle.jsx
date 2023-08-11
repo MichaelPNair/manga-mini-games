@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import BackButton from "../components/BackButton";
 import MainTitle from "../components/MainTitle";
 import WordleGuess from "../components/WordleGuess";
@@ -6,6 +6,7 @@ import WordleDuringInput from "../components/WordleDuringInput";
 import WordleKeyboard from "../components/WordleKeyboard";
 import DisplayManga from "../components/DisplayManga";
 import './MangaWordle.css'
+import { getWinCounts, updateMangaWordleCount } from "../utils/updateGameCount";
 
 const wordleAnswers = [
     {
@@ -173,11 +174,23 @@ export default function MangaWordle({onClickHome, user}) {
 
     const [gameAnswer, setGameAnswer] = useState(wordleAnswers[Math.floor(Math.random()* wordleAnswers.length)])
 
+    const [countFromAPI, setCountFromAPI] = useState(null)
+
     const [keyboardColor, setKeyboardColor] = useState({
         a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
     })
 
     const inputRef = useRef(null)
+
+    useEffect(() => {
+        if (user) {
+            getWinCounts()
+                .then(res => {
+                    setCountFromAPI(res.data.wordleWins)
+                })
+        }
+
+    }, [user])
 
 
 
@@ -194,10 +207,14 @@ export default function MangaWordle({onClickHome, user}) {
         inputRef.current.focus()
     }
 
-    function handleWin(){
+    async function handleWin(){
         setNewGuessText('')
         setIsFinished(true)
         setIsWon(true)
+        if(user) {
+            await updateMangaWordleCount(user.username)
+            setCountFromAPI(countFromAPI + 1)
+        }
     }
 
     function handleGiveUp(){
@@ -299,7 +316,7 @@ export default function MangaWordle({onClickHome, user}) {
         <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>
-        {user ? <p>You have won 0 times</p> : false}
+        {user ? <p>You have won {countFromAPI} times</p> : false}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
         {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}

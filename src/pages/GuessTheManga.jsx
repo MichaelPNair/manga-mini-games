@@ -6,6 +6,7 @@ import CompareDetails from "../components/CompareDetails";
 import './GuessTheManga.css'
 import DisplayManga from "../components/DisplayManga";
 import MangaSearchBar from "../components/MangaSearchBar";
+import { getWinCounts, updateMangaGuessCount } from "../utils/updateGameCount";
 
 
 const mangaAnswers = [
@@ -151,6 +152,8 @@ export default function GuessTheManga({onClickHome, user}) {
     const [searchText, setSearchText] = useState('')
     const [isMangaSelected, setIsMangaSelected] = useState(false)
 
+    const [countFromAPI, setCountFromAPI] = useState(null)
+
 
     useEffect(() => {
 
@@ -158,11 +161,20 @@ export default function GuessTheManga({onClickHome, user}) {
             .then(res => {
 
                 setAnswerDetails(res.data)
-                // console.log(res.data)
             })
  
 
     }, [gameAnswer])
+
+    useEffect(() => {
+        if (user) {
+            getWinCounts()
+                .then(res => {
+                    setCountFromAPI(res.data.guessWins)
+                })
+        }
+
+    }, [user])
 
     let title 
     let authors
@@ -215,9 +227,13 @@ export default function GuessTheManga({onClickHome, user}) {
         setIsMangaSelected(false)
     }
 
-    function handleWin(){
+    async function handleWin(){
         setIsFinished(true)
         setIsWon(true)
+        if(user) {
+            await updateMangaGuessCount(user.username)
+            setCountFromAPI(countFromAPI + 1)
+        }
     }
 
     function handleGiveUp(){
@@ -253,7 +269,7 @@ export default function GuessTheManga({onClickHome, user}) {
         <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give up</button>
         <p>What manga am I thinking of?</p>
-        {user ? <p>You have won 0 times</p> : false}
+        {user ? <p>You have won {countFromAPI} times</p> : false}
         <p>{isWon && `Congratulations! The manga was ${title}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The manga was ${title}!`}</p>
         <div hidden={isFinished}>
