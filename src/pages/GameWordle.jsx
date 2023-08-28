@@ -873,6 +873,48 @@ const gameWordleAnswers = [
         game: `Vagrant Story`,
         gameId: ''
     },
+    {
+        answer: 'skies',
+        id: 145,
+        game: `Skies of Arcadia`,
+        gameId: ''
+    },
+    {
+        answer: 'front',
+        id: 146,
+        game: `Front Mission III`,
+        gameId: ''
+    },
+    {
+        answer: 'lunar',
+        id: 147,
+        game: `Lunar: Silver Star Story`,
+        gameId: ''
+    },
+    {
+        answer: 'tales',
+        id: 148,
+        game: `Tales of Symphonia`,
+        gameId: ''
+    },
+    {
+        answer: 'light',
+        id: 149,
+        game: `Blue Reflection: Second Light`,
+        gameId: ''
+    },
+    {
+        answer: 'nexus',
+        id: 150,
+        game: `Scarlet Nexus`,
+        gameId: ''
+    },
+    {
+        answer: 'steel',
+        id: 151,
+        game: `Fuga: Melodies of Steel`,
+        gameId: ''
+    }
 ]
 
 
@@ -1560,7 +1602,7 @@ export default function GameWordle({onClickHome, user}) {
     return <div>
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
-        <h2>Game Wordle</h2>
+        <h2>Game Word Guesser</h2>
         <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>

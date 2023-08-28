@@ -3,6 +3,6 @@
 export default function MainTitle() {
 
     return <div>
-        <h1>Manga mini games</h1>
+        <h1>Michael's word guessers</h1>
     </div>
 }
