@@ -6,11 +6,11 @@ import getMangaSearchByText from "../utils/getMangaSearchByText"
 
 export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, updateSearchText, onSelectManga, onUnSelectManga}){
 
-    // const [searchText, setSearchText] = useState('')
+
 
     const [searchResult, setSearchResult] = useState(null)
 
-    // const [isMangaSelected, setIsMangaSelected] = useState(false)
+
     const [selectedManga, setSelectedManga] = useState({id: '', title: '', altTitles: '', authors:'',artists:''})
 
     function handleChange(e) {

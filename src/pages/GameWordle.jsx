@@ -1450,7 +1450,6 @@ const wordleAnswers = [
     
 ]
 
-
 export default function GameWordle({onClickHome, user}) {
 
     const [newGuessText, setNewGuessText] = useState('')
@@ -1463,6 +1462,7 @@ export default function GameWordle({onClickHome, user}) {
     const [gameAnswer, setGameAnswer] = useState(wordleAnswers[Math.floor(Math.random()* wordleAnswers.length)])
 
     const [countFromAPI, setCountFromAPI] = useState(null)
+    const [selectedId, setSelectedId] = useState(gameAnswer.id)
 
     const [keyboardColor, setKeyboardColor] = useState({
         a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
@@ -1491,7 +1491,9 @@ export default function GameWordle({onClickHome, user}) {
         setKeyboardColor({
             a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
         })
-        setGameAnswer(wordleAnswers[Math.floor(Math.random()* wordleAnswers.length)])
+        let randomId = Math.floor(Math.random()* wordleAnswers.length)
+        setGameAnswer(wordleAnswers[randomId])
+        setSelectedId(randomId + 1)
         inputRef.current.focus()
     }
 
@@ -1598,15 +1600,40 @@ export default function GameWordle({onClickHome, user}) {
         setKeyboardColor(keyboard => ({...keyboard, [letter]: color}))
     }
 
+    function handleSelectChange(e){
+        setSelectedId(e.target.value)
+        setNewGuessText('')
+        setGuesses([])
+        setIsFinished(false)
+        setIsWon(false)
+        setKeyboardColor({
+            a: 'plain-key', b: 'plain-key', c: 'plain-key', d: 'plain-key', e: 'plain-key', f:'plain-key', g:'plain-key', h:'plain-key', i:'plain-key', j:'plain-key', k:'plain-key', l:'plain-key', m:'plain-key', n:'plain-key', o:'plain-key', p:'plain-key', q:'plain-key', r:'plain-key', s:'plain-key', t:'plain-key', u:'plain-key', v:'plain-key', w:'plain-key', x:'plain-key', y:'plain-key', z:'plain-key'
+        })
+        setGameAnswer(wordleAnswers[e.target.value - 1])
+        inputRef.current.focus()
+    }
+
+    function gameIdSelect(selectedId){
+        return <>
+            <label >Game Number: </label>
+            <select onChange={handleSelectChange} value={selectedId}>
+                {wordleAnswers.map((answer, index) => {
+                    return <option key={index}>{index + 1}</option>
+                })}
+            </select>
+        </>
+    }
+
 
     return <div>
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
-        <h2>Game Word Guesser</h2>
-        <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
+        <h2>Manga Word Guesser</h2>
+        <button disabled={!isFinished} onClick={handleNewGame}>New Random Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>
-        {user ? <p>You have won {countFromAPI} times</p> : false}
+        {gameIdSelect(selectedId)}
+        {user && <p>You have won {countFromAPI} times</p>}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
         {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
