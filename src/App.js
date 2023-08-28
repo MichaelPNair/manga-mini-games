@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import CreateNewAccount from './pages/CreateNewAccount';
 import LoggedInAs from './components/LoggedInAs';
 import { getUser } from './utils/users_service';
+import GameWordle from './pages/GameWordle';
 
 function App() {
 
@@ -42,6 +43,10 @@ function App() {
     setCurrentPage('Wordle')
   }
 
+  function toGameWordlePage(){
+    setCurrentPage('GameWordle')
+  }
+
   function toLoginPage(){
     setCurrentPage('Login')
   }
@@ -53,11 +58,13 @@ function App() {
   function renderSwitch(param) {
     switch(param) {
       case 'Home':
-        return <HomePage onClickGuess={toGuessPage} onClickDoku={toDokuPage} onClickWordle={toWordlePage} user={user}/>;
+        return <HomePage onClickGuess={toGuessPage} onClickDoku={toDokuPage} onClickWordle={toWordlePage} onClickGameWordle={toGameWordlePage} user={user}/>;
       case 'Guess':
         return <GuessTheManga onClickHome={toHomePage} user={user}/>;
       // case 'Doku':
       //   return <MangaDoku onClickHome={toHomePage} user={user}/>;
+      case 'GameWordle':
+        return <GameWordle onClickHome={toHomePage} user={user}/>;
       case 'Wordle':
         return <MangaWordle onClickHome={toHomePage} user={user}/>;
       case 'Login':
