@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
 import './CompareDetails.css'
 import ShowManyTags from "./ShowManyTags"
+import getMangaDetailsById from "../utils/getMangaDetailsById"
 
 
 export default function CompareDetails({guessId, title, authors, artists, publicationDemographic, status, year, theme, genre}) {
@@ -10,7 +10,7 @@ export default function CompareDetails({guessId, title, authors, artists, public
 
     useEffect(() => {
 
-        axios.get(`https://api.mangadex.org/manga/${guessId}?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author&includes%5B%5D=artist`)
+        getMangaDetailsById(guessId)
             .then(res => {
 
                 setGuessDetails(res.data)

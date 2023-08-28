@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
 import MangaSearchItem from "./MangaSearchItem"
 import MangaSelected from "./MangaSelected"
 import './MangaSearchBar.css'
+import getMangaSearchByText from "../utils/getMangaSearchByText"
 
 export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, updateSearchText, onSelectManga, onUnSelectManga}){
 
@@ -21,7 +21,7 @@ export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, u
 
     useEffect(() => {
         
-        axios.get(`https://api.mangadex.org/manga?limit=9&title=${searchText}&includedTagsMode=AND&excludedTagsMode=OR&contentRating%5B%5D=safe&contentRating%5B%5D=suggestive&contentRating%5B%5D=erotica&order%5Brelevance%5D=desc&includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author&includes%5B%5D=artist`)
+        getMangaSearchByText(searchText)
             .then(res => {
                 setSearchResult(res.data)
             })

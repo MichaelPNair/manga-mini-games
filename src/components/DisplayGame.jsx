@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react"
+import axios from "axios"
 import "./DisplayManga.css"
-import getMangaDetailsById from "../utils/getMangaDetailsById"
 
 
-export default function DisplayManga({mangaId}) {
+export default function DisplayGame({gameId}) {
 
     const [mangaDetails, setMangaDetails] = useState(null)
 
     useEffect(() => {
 
-        getMangaDetailsById(mangaId)
+        axios.get(`https://api.mangadex.org/manga/${mangaId}?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author&includes%5B%5D=artist`)
             .then(res => {
 
                 setMangaDetails(res.data)
             })
  
 
-    }, [mangaId])
+    }, [gameId])
 
     let title 
     let authors
@@ -50,12 +50,12 @@ export default function DisplayManga({mangaId}) {
 
 
 
-    return <div className="display-manga-area">
+    return <div className="display-game-area">
         {
             mangaDetails ?
-            <section className="display-manga-section">
+            <section className="display-game-section">
                 <img src={`https://uploads.mangadex.org/covers/${mangaId}/${coverId}.256.jpg`} alt="cover art" /> 
-                <div className="manga-section-right-box">
+                <div className="game-section-right-box">
                     <p>Title: {title}</p>
                     {altTitles.length > 0 && <p>Alt Title: {altTitles}</p>}
                     <p>Author: {authors}</p>
@@ -64,7 +64,7 @@ export default function DisplayManga({mangaId}) {
                 </div>
             </section>
            :
-           <section className="loading-manga-section">Loading ...</section>
+           <section className="loading-game-section">Loading Game Details...</section>
         }
     </div>
 }

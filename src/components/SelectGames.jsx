@@ -9,6 +9,7 @@ export default function SelectGames({onClickGuess, onClickDoku, onClickWordle, o
         <button onClick={onClickGuess}>Guess the Manga</button>
         {/* <button onClick={onClickDoku}>Manga-doku</button> */}
 
-        <p>This page was made with data sourced from the Mangadex v5 api</p>
+        <p>Manga data is sourced from the Mangadex v5 api</p>
+        <p>Video Game data is sourced from the RAWG api</p>
     </div>
 }

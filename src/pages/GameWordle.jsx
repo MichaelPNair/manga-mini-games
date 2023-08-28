@@ -5,7 +5,7 @@ import WordleGuess from "../components/WordleGuess";
 import WordleDuringInput from "../components/WordleDuringInput";
 import WordleKeyboard from "../components/WordleKeyboard";
 import DisplayManga from "../components/DisplayManga";
-import './MangaWordle.css'
+import './GameWordle.css'
 import { getWinCounts, updateMangaWordleCount } from "../utils/updateGameCount";
 
 const gameWordleAnswers = [
