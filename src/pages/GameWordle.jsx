@@ -13,13 +13,13 @@ const gameWordleAnswers = [
         answer: 'zelda',
         id: 1,
         game: `The Legend of Zelda Breath of the Wild`,
-        gameId: ''
+        gameId: '22511'
     },
     {
         answer: 'super',
         id: 2,
         game: 'Super Mario 64',
-        gameId: ''
+        gameId: '54528'
     },
     {
         answer: 'grand',
@@ -709,7 +709,7 @@ const gameWordleAnswers = [
         answer: 'fires',
         id: 117,
         game: `Armored Core VI Fires of Rubicon`,
-        gameId: ''
+        gameId: '892902'
     },
     {
         answer: 'tunic',
