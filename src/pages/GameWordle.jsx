@@ -8,6 +8,874 @@ import DisplayManga from "../components/DisplayManga";
 import './MangaWordle.css'
 import { getWinCounts, updateMangaWordleCount } from "../utils/updateGameCount";
 
+const gameWordleAnswers = [
+    {
+        answer: 'zelda',
+        id: 1,
+        game: `The Legend of Zelda Breath of the Wild`,
+        gameId: ''
+    },
+    {
+        answer: 'super',
+        id: 2,
+        game: 'Super Mario 64',
+        gameId: ''
+    },
+    {
+        answer: 'grand',
+        id: 3,
+        game: 'grand theft auto V',
+        gameId: ''
+    },
+    {
+        answer: 'seven',
+        id: 4,
+        game: `Super Mario RPG Legend of the Seven Stars`,
+        gameId: ''
+    },
+    {
+        answer: 'world',
+        id: 5,
+        game: 'super mario world',
+        gameId: ''
+    },
+    {
+        answer: 'final',
+        id: 6,
+        game: 'Final Fantasy VII',
+        gameId: ''
+    },
+    {
+        answer: 'world',
+        id: 7,
+        game: 'World of Warcraft',
+        gameId: ''
+    },
+    {
+        answer: 'elder',
+        id: 8,
+        game: 'The Elder Scrolls V Skyrim',
+        gameId: ''
+    },
+    {
+        answer: 'metal',
+        id: 9,
+        game: 'Metal Gear Solid',
+        gameId: ''
+    },
+    {
+        answer: 'magic',
+        id: 10,
+        game: `Heroes of Might and Magic III`,
+        gameId: ''
+    },
+    {
+        answer: 'souls',
+        id: 11,
+        game: 'Dark Souls',
+        gameId: ''
+    },
+    {
+        answer: 'among',
+        id: 12,
+        game: 'Uncharted 2 Among Thieves',
+        gameId: ''
+    },
+    {
+        answer: 'prime',
+        id: 13,
+        game: 'Metroid Prime',
+        gameId: ''
+    },
+    {
+        answer: 'disco',
+        id: 14,
+        game: 'Disco Elysium',
+        gameId: ''
+    },
+    {
+        answer: 'final',
+        id: 15,
+        game: 'Final Fantasy VI',
+        gameId: ''
+    },
+    {
+        answer: 'snake',
+        id: 16,
+        game: 'Metal Gear Solid 3 Snake Eater',
+        gameId: ''
+    },
+    {
+        answer: 'money',
+        id: 17,
+        game: `Hitman Blood Money`,
+        gameId: ''
+    },
+    {
+        answer: 'royal',
+        id: 18,
+        game: 'Persona 5 Royal',
+        gameId: ''
+    },
+    {
+        answer: 'smash',
+        id: 19,
+        game: 'Super Smash Bros Ultimate',
+        gameId: ''
+    },
+    {
+        answer: 'super',
+        id: 20,
+        game: 'Super Mario Odyssey',
+        gameId: ''
+    },
+    {
+        answer: 'sonic',
+        id: 21,
+        game: 'Sonic The Hedgehog',
+        gameId: ''
+    },
+    {
+        answer: 'waker',
+        id: 22,
+        game: 'The Legend of Zelda The Wind Waker',
+        gameId: ''
+    },
+    {
+        answer: 'space',
+        id: 23,
+        game: 'Space Invaders',
+        gameId: ''
+    },
+    {
+        answer: 'three',
+        id: 24,
+        game: 'Fire Emblem Three Houses',
+        gameId: ''
+    },
+    {
+        answer: 'braid',
+        id: 25,
+        game: 'Braid',
+        gameId: ''
+    },
+    {
+        answer: 'creed',
+        id: 26,
+        game: `Assassin's creed`,
+        gameId: ''
+    },
+    {
+        answer: 'melee',
+        id: 27,
+        game: `Super Smash Bros Melee`,
+        gameId: ''
+    },
+    {
+        answer: 'shock',
+        id: 28,
+        game: `System Shock 2`,
+        gameId: ''
+    },
+    {
+        answer: 'sands',
+        id: 29,
+        game: `Prince of Persia The Sands of Time`,
+        gameId: ''
+    },
+    {
+        answer: 'quake',
+        id: 30,
+        game: `Quake`,
+        gameId: ''
+    },
+    {
+        answer: 'wilds',
+        id: 31,
+        game: `Outer Wilds`,
+        gameId: ''
+    },
+    {
+        answer: 'final',
+        id: 32,
+        game: `Final Fantasy Tactics`,
+        gameId: ''
+    },
+    {
+        answer: 'elite',
+        id: 33,
+        game: `Elite`,
+        gameId: ''
+    },
+    {
+        answer: 'limbo',
+        id: 34,
+        game: `Limbo`,
+        gameId: ''
+    },
+    {
+        answer: 'world',
+        id: 35,
+        game: `Monster Hunter World`,
+        gameId: ''
+    },
+    {
+        answer: 'gears',
+        id: 36,
+        game: `Gears of War`,
+        gameId: ''
+    },
+    {
+        answer: 'wings',
+        id: 37,
+        game: `StarCraft II Wings of Liberty`,
+        gameId: ''
+    },
+    {
+        answer: 'enemy',
+        id: 38,
+        game: `XCOM Enemy Unknown`,
+        gameId: ''
+    },
+    {
+        answer: 'tides',
+        id: 39,
+        game: `Warcraft II Tides of Darkness`,
+        gameId: ''
+    },
+    {
+        answer: 'space',
+        id: 40,
+        game: `Dead Space`,
+        gameId: ''
+    },
+    {
+        answer: 'ghost',
+        id: 41,
+        game: `Ghost of Tsushima`,
+        gameId: ''
+    },
+    {
+        answer: 'black',
+        id: 42,
+        game: `Assassin's creen IV Black Flag`,
+        gameId: ''
+    },
+    {
+        answer: 'kings',
+        id: 43,
+        game: `Age of Empires II The Age of Kings`,
+        gameId: ''
+    },
+    {
+        answer: 'birds',
+        id: 44,
+        game: `Angry Birds`,
+        gameId: ''
+    },
+    {
+        answer: 'chaos',
+        id: 45,
+        game: `Splinter Cell Chaos Theory`,
+        gameId: ''
+    },
+    {
+        answer: 'thief',
+        id: 46,
+        game: `Thief The Dark Project`,
+        gameId: ''
+    },
+    {
+        answer: 'elder',
+        id: 47,
+        game: `The Elder Scrolls III Morrowind`,
+        gameId: ''
+    },
+    {
+        answer: 'quake',
+        id: 48,
+        game: `Quake III Arena`,
+        gameId: ''
+    },
+    {
+        answer: 'sword',
+        id: 49,
+        game: `Pokemon Sword`,
+        gameId: ''
+    },
+    {
+        answer: 'banjo',
+        id: 50,
+        game: `Banjo-Kazooie`,
+        gameId: ''
+    },
+    {
+        answer: 'total',
+        id: 51,
+        game: `Rome Total War`,
+        gameId: ''
+    },
+    {
+        answer: 'rally',
+        id: 52,
+        game: `Sega Rally Championship`,
+        gameId: ''
+    },
+    {
+        answer: 'trail',
+        id: 53,
+        game: `The Oregon Trail`,
+        gameId: ''
+    },
+    {
+        answer: 'alert',
+        id: 54,
+        game: `Command & Conquer Red Alert`,
+        gameId: ''
+    },
+    {
+        answer: 'quest',
+        id: 55,
+        game: `Dragon Quest XI`,
+        gameId: ''
+    },
+    {
+        answer: 'reign',
+        id: 56,
+        game: `Warcraft III Reign of Chaos`,
+        gameId: ''
+    },
+    {
+        answer: 'story',
+        id: 57,
+        game: `Her Story`,
+        gameId: ''
+    },
+    {
+        answer: 'devil',
+        id: 58,
+        game: `Devil May Cry`,
+        gameId: ''
+    },
+    {
+        answer: 'radio',
+        id: 59,
+        game: `Jet Set Radio`,
+        gameId: ''
+    },
+    {
+        answer: 'stars',
+        id: 60,
+        game: `Super Mario RPG Legend of the Seven Stars`,
+        gameId: ''
+    },
+    {
+        answer: 'theft',
+        id: 4,
+        game: 'grand theft auto III',
+        gameId: ''
+    },
+    {
+        answer: 'dance',
+        id: 62,
+        game: `Dance Dance Revolution`,
+        gameId: ''
+    },
+    {
+        answer: 'brawl',
+        id: 63,
+        game: `Super Smash Bros Brawl`,
+        gameId: ''
+    },
+    {
+        answer: 'black',
+        id: 64,
+        game: `Pokemon Black Version`,
+        gameId: ''
+    },
+    {
+        answer: 'route',
+        id: 65,
+        game: `Kentucky Route Zero`,
+        gameId: ''
+    },
+    {
+        answer: 'fable',
+        id: 66,
+        game: `Fable`,
+        gameId: ''
+    },
+    {
+        answer: 'realm',
+        id: 67,
+        game: `Final Fantasy XIV Online A Realm Reborn`,
+        gameId: ''
+    },
+    {
+        answer: 'ninja',
+        id: 68,
+        game: `Ninja Gaiden`,
+        gameId: ''
+    },
+    {
+        answer: 'twice',
+        id: 69,
+        game: `Leisure Suit Larry: Wet Dreams Dry Twice`,
+        gameId: ''
+    },
+    {
+        answer: 'alien',
+        id: 70,
+        game: `Alien Isolation`,
+        gameId: ''
+    },
+    {
+        answer: 'maker',
+        id: 71,
+        game: `Super Mario Maker`,
+        gameId: ''
+    },
+    {
+        answer: 'final',
+        id: 72,
+        game: `Final Fantasy XII`,
+        gameId: ''
+    },
+    {
+        answer: 'goose',
+        id: 73,
+        game: `Untitled Goose Game`,
+        gameId: ''
+    },
+    {
+        answer: 'light',
+        id: 74,
+        game: `FTL Faster Than Light`,
+        gameId: ''
+    },
+    {
+        answer: 'human',
+        id: 75,
+        game: `Deus Ex Human Revolution`,
+        gameId: ''
+    },
+    {
+        answer: 'blood',
+        id: 76,
+        game: `Hitman Blood Money`,
+        gameId: ''
+    },
+    {
+        answer: 'eater',
+        id: 77,
+        game: 'Metal Gear Solid 3 Snake Eater',
+        gameId: ''
+    },
+    {
+        answer: 'fight',
+        id: 78,
+        game: `Final Fight`,
+        gameId: ''
+    },
+    {
+        answer: 'quest',
+        id: 79,
+        game: `Dragon Quest Builders 2`,
+        gameId: ''
+    },
+    {
+        answer: 'track',
+        id: 80,
+        game: `Track & Field`,
+        gameId: ''
+    },
+    {
+        answer: 'guild',
+        id: 81,
+        game: `Guild Wars 2`,
+        gameId: ''
+    },
+    {
+        answer: 'metal',
+        id: 82,
+        game: `Metal Slug`,
+        gameId: ''
+    },
+    {
+        answer: 'space',
+        id: 83,
+        game: `Kerbal Space Program`,
+        gameId: ''
+    },
+    {
+        answer: 'clank',
+        id: 84,
+        game: `Ratchet & Clank Up Your Arsenal`,
+        gameId: ''
+    },
+    {
+        answer: 'heavy',
+        id: 85,
+        game: `Heavy Rain`,
+        gameId: ''
+    },
+    {
+        answer: 'final',
+        id: 86,
+        game: `Final Fantasy VIII`,
+        gameId: ''
+    },
+    {
+        answer: 'alone',
+        id: 87,
+        game: `Alone in the Dark`,
+        gameId: ''
+    },
+    {
+        answer: 'twice',
+        id: 88,
+        game: `Sekiro Shadows Die Twice`,
+        gameId: ''
+    },
+    {
+        answer: 'third',
+        id: 89,
+        game: `Street Fighter III Third Strike`,
+        gameId: ''
+    },
+    {
+        answer: 'great',
+        id: 90,
+        game: `Rayman 2 The Great Escape`,
+        gameId: ''
+    },
+    {
+        answer: 'blind',
+        id: 91,
+        game: `Ori and The Blind Forest`,
+        gameId: ''
+    },
+    {
+        answer: 'crazy',
+        id: 92,
+        game: `Crazy Taxi`,
+        gameId: ''
+    },
+    {
+        answer: 'paper',
+        id: 93,
+        game: `Paper Mario`,
+        gameId: ''
+    },
+    {
+        answer: 'rogue',
+        id: 94,
+        game: `Rogue`,
+        gameId: ''
+    },
+    {
+        answer: 'crash',
+        id: 95,
+        game: `Crash Bandicoot`,
+        gameId: ''
+    },
+    {
+        answer: 'reach',
+        id: 96,
+        game: `Halo Reach`,
+        gameId: ''
+    },
+    {
+        answer: 'story',
+        id: 97,
+        game: `Cave Story`,
+        gameId: ''
+    },
+    {
+        answer: 'mafia',
+        id: 98,
+        game: `Mafia`,
+        gameId: ''
+    },
+    {
+        answer: 'worms',
+        id: 99,
+        game: `Worms`,
+        gameId: ''
+    },
+    {
+        answer: 'might',
+        id: 100,
+        game: `Heroes of Might and Magic III`,
+        gameId: ''
+    },
+    {
+        answer: 'solid',
+        id: 10,
+        game: 'Metal Gear Solid',
+        gameId: ''
+    },
+    {
+        answer: 'fates',
+        id: 102,
+        game: `Fire Emblem Fates`,
+        gameId: ''
+    },
+    {
+        answer: 'joust',
+        id: 103,
+        game: `Joust`,
+        gameId: ''
+    },
+    {
+        answer: 'turbo',
+        id: 104,
+        game: `Super Puzzle Fighter II Turbo`,
+        gameId: ''
+    },
+    {
+        answer: 'aegis',
+        id: 105,
+        game: `13 Sentinels Aegis Rim`,
+        gameId: ''
+    },
+    {
+        answer: 'outer',
+        id: 106,
+        game: `Outer Worlds`,
+        gameId: ''
+    },
+    {
+        answer: 'omega',
+        id: 107,
+        game: `Astro Boy: Omega Factor`,
+        gameId: ''
+    },
+    {
+        answer: 'alpha',
+        id: 108,
+        game: `Street Fighter Alpha 3`,
+        gameId: ''
+    },
+    {
+        answer: 'dozer',
+        id: 109,
+        game: `Drill Dozer`,
+        gameId: ''
+    },
+    {
+        answer: 'sword',
+        id: 110,
+        game: `Broken Sword`,
+        gameId: ''
+    },
+    {
+        answer: 'night',
+        id: 111,
+        game: `Summon Night Swordcraft Story 2`,
+        gameId: ''
+    },
+    {
+        answer: 'dodge',
+        id: 112,
+        game: `Super Dodge Ball Advance`,
+        gameId: ''
+    },
+    {
+        answer: 'hades',
+        id: 113,
+        game: `Hades`,
+        gameId: ''
+    },
+    {
+        answer: 'ultra',
+        id: 114,
+        game: `The Stanley Parable Ultra Deluxe`,
+        gameId: ''
+    },
+    {
+        answer: 'takes',
+        id: 115,
+        game: `It Takes Two`,
+        gameId: ''
+    },
+    {
+        answer: 'tales',
+        id: 116,
+        game: `Tales of Arise`,
+        gameId: ''
+    },
+    {
+        answer: 'fires',
+        id: 117,
+        game: `Armored Core VI Fires of Rubicon`,
+        gameId: ''
+    },
+    {
+        answer: 'tunic',
+        id: 118,
+        game: `Tunic`,
+        gameId: ''
+    },
+    {
+        answer: 'skies',
+        id: 119,
+        game: `Dragon Quest IX Sentinels of the Starry Skies`,
+        gameId: ''
+    },
+    {
+        answer: 'Elite',
+        id: 120,
+        game: `Elite Beat Agents`,
+        gameId: ''
+    },
+    {
+        answer: 'Devil',
+        id: 121,
+        game: `Shin Megami Tensei Devil Survivor`,
+        gameId: ''
+    },
+    {
+        answer: 'Trick',
+        id: 122,
+        game: `Ghost Trick Phantom Detective`,
+        gameId: ''
+    },
+    {
+        answer: 'heist',
+        id: 123,
+        game: `SteamWorld Heist`,
+        gameId: ''
+    },
+    {
+        answer: 'elder',
+        id: 124,
+        game: `The Elder Scrolls IV Oblivion`,
+        gameId: ''
+    },
+    {
+        answer: 'saber',
+        id: 125,
+        game: `Beat Saber`,
+        gameId: ''
+    },
+    {
+        answer: 'lords',
+        id: 126,
+        game: `Myth The Fallen Lords`,
+        gameId: ''
+    },
+    {
+        answer: 'wrath',
+        id: 127,
+        game: `World of Warcraft Wrath of the Lich King`,
+        gameId: ''
+    },
+    {
+        answer: 'kings',
+        id: 128,
+        game: `Crusader Kings III`,
+        gameId: ''
+    },
+    {
+        answer: 'ninja',
+        id: 129,
+        game: `Mark of the Ninja`,
+        gameId: ''
+    },
+    {
+        answer: 'white',
+        id: 130,
+        game: `Black & White`,
+        gameId: ''
+    },
+    {
+        answer: 'cells',
+        id: 131,
+        game: `Dead Cells`,
+        gameId: ''
+    },
+    {
+        answer: 'spire',
+        id: 132,
+        game: `Slay the Spire`,
+        gameId: ''
+    },
+    {
+        answer: 'pizza',
+        id: 133,
+        game: `Pizza Tower`,
+        gameId: ''
+    },
+    {
+        answer: 'curse',
+        id: 134,
+        game: `The Curse of Monkey Island`,
+        gameId: ''
+    },
+    {
+        answer: 'wisps',
+        id: 135,
+        game: `Ori and the Will of the Wisps`,
+        gameId: ''
+    },
+    {
+        answer: 'abyss',
+        id: 136,
+        game: `Ultima Underworld The Stygian Abyss`,
+        gameId: ''
+    },
+    {
+        answer: 'pixel',
+        id: 137,
+        game: `Final Fantasy VI Pixel Remaster`,
+        gameId: ''
+    },
+    {
+        answer: 'skies',
+        id: 138,
+        game: `Sunless Skies`,
+        gameId: ''
+    },
+    {
+        answer: 'death',
+        id: 139,
+        game: `Death Stranding`,
+        gameId: ''
+    },
+    {
+        answer: 'among',
+        id: 140,
+        game: `Among Us`,
+        gameId: ''
+    },
+    {
+        answer: 'stick',
+        id: 141,
+        game: `South Park The Stick of Truth`,
+        gameId: ''
+    },
+    {
+        answer: 'cross',
+        id: 142,
+        game: `Chrono Cross`,
+        gameId: ''
+    },
+    {
+        answer: 'night',
+        id: 143,
+        game: `Castlevania Symphony of the Night`,
+        gameId: ''
+    },
+    {
+        answer: 'story',
+        id: 144,
+        game: `Vagrant Story`,
+        gameId: ''
+    },
+]
+
+
 const wordleAnswers = [
     {
         answer: 'guild',
