@@ -1,50 +1,52 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
-import "./DisplayManga.css"
+import "./DisplayGame.css"
+import getGameDetailsById from "../utils/getGameDetailsById"
 
 
 export default function DisplayGame({gameId}) {
 
-    const [mangaDetails, setMangaDetails] = useState(null)
+    const [gameDetails, setGameDetails] = useState(null)
 
     useEffect(() => {
 
-        axios.get(`https://api.mangadex.org/manga/${mangaId}?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author&includes%5B%5D=artist`)
+        getGameDetailsById(gameId)
             .then(res => {
 
-                setMangaDetails(res.data)
+                setGameDetails(res.data)
             })
  
 
     }, [gameId])
 
-    let title 
-    let authors
-    let artists
-    let coverId
-    let altTitles
 
-    if (mangaDetails) {
-        title = mangaDetails.data.attributes.title.en
-        authors = mangaDetails.data.relationships
-            .filter(relationship => relationship.type === 'author')
-            .map(relationship => relationship.attributes.name)
+    let gameName
+    let description
+    let metacritic
+    let releaseDate
+    let imageUrl
+    let platforms
+    let developers
+    let publishers
+
+    if (gameDetails) {
+        gameName = gameDetails.name
+        description = gameDetails.description_raw
+        metacritic = gameDetails.metacritic
+        releaseDate = gameDetails.released
+        imageUrl = gameDetails.background_image
+
+        platforms = gameDetails.platforms
+            .map(platform => platform.platform.name)
             .join(', ')
 
-        artists = mangaDetails.data.relationships
-        .filter(relationship => relationship.type === 'artist')
-        .map(relationship => relationship.attributes.name)
+        developers = gameDetails.developers
+        .map(dev => dev.name)
         .join(', ')
 
-        altTitles = mangaDetails.data.attributes.altTitles
-            .filter(title => title['en'] !== undefined)
-            .map(title => title.en)
-            .join(', ')
+        publishers = gameDetails.publishers
+        .map(publisher => publisher.name)
+        .join(', ')
 
-        coverId = mangaDetails.data.relationships
-            .filter(relationship => relationship.type === 'cover_art')[0].attributes.fileName
-
-        
     }
 
 
@@ -52,15 +54,17 @@ export default function DisplayGame({gameId}) {
 
     return <div className="display-game-area">
         {
-            mangaDetails ?
+            gameDetails ?
             <section className="display-game-section">
-                <img src={`https://uploads.mangadex.org/covers/${mangaId}/${coverId}.256.jpg`} alt="cover art" /> 
+                <img src={imageUrl} alt="game art" /> 
                 <div className="game-section-right-box">
-                    <p>Title: {title}</p>
-                    {altTitles.length > 0 && <p>Alt Title: {altTitles}</p>}
-                    <p>Author: {authors}</p>
-                    <p>Artist: {artists}</p>
-                    <p>Description: {mangaDetails.data.attributes.description.en}</p>
+                    <p>{gameName}</p>
+                    <p>Release Date: {releaseDate}</p>
+                    <p>Metacritic: {metacritic}</p>
+                    <p>Platforms: {platforms}</p>
+                    <p>Developed By: {developers}</p>
+                    <p>Published By: {publishers}</p>
+                    <p>Description: {description}</p>
                 </div>
             </section>
            :

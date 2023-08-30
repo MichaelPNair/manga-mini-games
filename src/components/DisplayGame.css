@@ -14,6 +14,13 @@
     overflow: hidden;
 }
 
+.display-game-area img {
+    width: 50%;
+    aspect-ratio: 1/1;
+    display: block;
+    object-fit: cover;
+}
+
 .display-game-area .game-section-right-box {
     color: white;
     padding-left: 2%;
