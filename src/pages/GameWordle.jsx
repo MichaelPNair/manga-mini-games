@@ -38,7 +38,7 @@ const gameWordleAnswers = [
         answer: 'world',
         id: 5,
         game: 'super mario world',
-        gameId: '23967'
+        gameId: '24899'
     },
     {
         answer: 'final',
@@ -62,7 +62,7 @@ const gameWordleAnswers = [
         answer: 'metal',
         id: 9,
         game: 'Metal Gear Solid',
-        gameId: '35020'
+        gameId: '57607'
     },
     {
         answer: 'magic',
@@ -293,16 +293,16 @@ const gameWordleAnswers = [
         gameId: '13820'
     },
     {
-        answer: 'quake',
+        answer: 'arena',
         id: 48,
         game: `Quake III Arena`,
-        gameId: '23063'
+        gameId: '54718'
     },
     {
         answer: 'sword',
         id: 49,
         game: `Pokemon Sword`,
-        gameId: '23833'
+        gameId: '282825'
     },
     {
         answer: 'banjo',
@@ -344,7 +344,7 @@ const gameWordleAnswers = [
         answer: 'reign',
         id: 56,
         game: `Warcraft III Reign of Chaos`,
-        gameId: '17610'
+        gameId: '30445'
     },
     {
         answer: 'story',
@@ -392,7 +392,7 @@ const gameWordleAnswers = [
         answer: 'black',
         id: 64,
         game: `Pokemon Black Version`,
-        gameId: '331454'
+        gameId: '330615'
     },
     {
         answer: 'route',
@@ -404,7 +404,7 @@ const gameWordleAnswers = [
         answer: 'fable',
         id: 66,
         game: `Fable`,
-        gameId: '384488'
+        gameId: '19635'
     },
     {
         answer: 'realm',
@@ -539,16 +539,16 @@ const gameWordleAnswers = [
         gameId: '50734'
     },
     {
-        answer: 'third',
+        answer: 'rival',
         id: 89,
-        game: `Street Fighter III Third Strike`,
-        gameId: '54757'
+        game: `Rival Schools`,
+        gameId: '57728'
     },
     {
-        answer: 'great',
+        answer: 'cling',
         id: 90,
-        game: `Rayman 2 The Great Escape`,
-        gameId: '5415'
+        game: `Tactics Ogre Let Us Cling Together`,
+        gameId: '4791'
     },
     {
         answer: 'blind',
@@ -614,7 +614,7 @@ const gameWordleAnswers = [
         answer: 'solid',
         id: 101,
         game: 'Metal Gear Solid',
-        gameId: '35020'
+        gameId: '57607'
     },
     {
         answer: 'fates',
