@@ -920,7 +920,7 @@ const gameWordleAnswers = [
         answer: 'dwarf',
         id: 152,
         game: `Dwarf Fortress`,
-        gameId: '957454'
+        gameId: '58209'
     }
 ]
 
@@ -1635,10 +1635,10 @@ export default function GameWordle({onClickHome, user}) {
     return <div>
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
-        <h2>Manga Word Guesser</h2>
+        <h2>Video Game Word Guesser</h2>
         <button disabled={!isFinished} onClick={handleNewGame}>New Random Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
-        <p>Guess the word</p>
+        <p>{`Guess the word! (Bonus challenge: Name a game with each guess)`}</p>
         {gameIdSelect(selectedId)}
         {user && <p>You have won {countFromAPI} times</p>}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
