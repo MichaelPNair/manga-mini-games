@@ -571,6 +571,14 @@ export default function MangaWordle({onClickHome, user}) {
 
     }, [user])
 
+    useEffect(() => {
+        if(!isFinished){
+            inputRef.current.focus()
+        }
+        
+
+    }, [isFinished])
+
 
 
 
@@ -585,7 +593,6 @@ export default function MangaWordle({onClickHome, user}) {
         let randomId = Math.floor(Math.random()* wordleAnswers.length)
         setGameAnswer(wordleAnswers[randomId])
         setSelectedId(randomId + 1)
-        inputRef.current.focus()
     }
 
     async function handleWin(){
