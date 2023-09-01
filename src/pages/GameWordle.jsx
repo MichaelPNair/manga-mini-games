@@ -1487,6 +1487,14 @@ export default function GameWordle({onClickHome, user}) {
 
     }, [user])
 
+    useEffect(() => {
+        if(!isFinished){
+            inputRef.current.focus()
+        }
+        
+
+    }, [isFinished])
+
 
 
 
@@ -1501,7 +1509,7 @@ export default function GameWordle({onClickHome, user}) {
         let randomId = Math.floor(Math.random()* gameWordleAnswers.length)
         setGameAnswer(gameWordleAnswers[randomId])
         setSelectedId(randomId + 1)
-        inputRef.current.focus()
+        // inputRef.current.focus()
     }
 
     async function handleWin(){
