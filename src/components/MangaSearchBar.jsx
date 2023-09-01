@@ -4,7 +4,7 @@ import MangaSelected from "./MangaSelected"
 import './MangaSearchBar.css'
 import getMangaSearchByText from "../utils/getMangaSearchByText"
 
-export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, updateSearchText, onSelectManga, onUnSelectManga}){
+export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, updateSearchText, onSelectManga, onUnSelectManga, inputRef}){
 
 
 
@@ -12,6 +12,8 @@ export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, u
 
 
     const [selectedManga, setSelectedManga] = useState({id: '', title: '', altTitles: '', authors:'',artists:''})
+
+    
 
     function handleChange(e) {
         if (e.target.value.match(/^[a-zA-Z0-9 ]*$/)){
@@ -26,6 +28,8 @@ export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, u
                 setSearchResult(res.data)
             })
     },[searchText])
+
+
 
 
     function showSearchResults(){
@@ -83,7 +87,7 @@ export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, u
 
 
     return <div>
-        <input hidden={isMangaSelected} type="text" value={searchText} onChange={handleChange} />
+        <input autoFocus ref={inputRef} hidden={isMangaSelected} type="text" value={searchText} onChange={handleChange} />
         {showSelectedManga()}
         <div className="search-results-grid">
             {showSearchResults()}

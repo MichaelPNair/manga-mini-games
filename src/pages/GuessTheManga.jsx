@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BackButton from "../components/BackButton";
 import MainTitle from "../components/MainTitle";
 import axios from "axios";
@@ -557,6 +557,8 @@ export default function GuessTheManga({onClickHome, user}) {
 
     const [countFromAPI, setCountFromAPI] = useState(null)
 
+    const inputRef = useRef(null)
+
 
     useEffect(() => {
 
@@ -579,6 +581,13 @@ export default function GuessTheManga({onClickHome, user}) {
         }
 
     }, [user])
+
+    useEffect(() => {
+        if (!isFinished) {
+            inputRef.current.focus()
+        }
+
+    }, [isFinished])
 
     let title 
     let authors
@@ -666,6 +675,8 @@ export default function GuessTheManga({onClickHome, user}) {
     }
 
 
+
+
     return <div>
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
@@ -677,7 +688,7 @@ export default function GuessTheManga({onClickHome, user}) {
         <p>{isWon && `Congratulations! The manga was ${title}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The manga was ${title}!`}</p>
         <div hidden={isFinished}>
-            <MangaSearchBar onSubmit={submitGuess} searchText={searchText} isMangaSelected={isMangaSelected} updateSearchText={updateSearchText} onSelectManga={onSelectManga} onUnSelectManga={onUnSelectManga}/>
+            <MangaSearchBar onSubmit={submitGuess} searchText={searchText} isMangaSelected={isMangaSelected} updateSearchText={updateSearchText} onSelectManga={onSelectManga} onUnSelectManga={onUnSelectManga} inputRef={inputRef}/>
         </div>
 
         {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
