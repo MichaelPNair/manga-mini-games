@@ -1,7 +1,8 @@
+import './SelectGames.css'
 
 export default function SelectGames({onClickGuess, onClickDoku, onClickWordle, onClickGameWordle}) {
 
-    return <div>
+    return <div className='select-games'>
 
         {/* <p>Login to keep track of your wins!</p> */}
         <button onClick={onClickGameWordle}>Game Word Guesser</button>

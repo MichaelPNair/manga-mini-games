@@ -921,6 +921,18 @@ const gameWordleAnswers = [
         id: 152,
         game: `Dwarf Fortress`,
         gameId: '58209'
+    },
+    {
+        answer: 'dogma',
+        id: 153,
+        game: `Dragons Dogma`,
+        gameId: '4297'
+    },
+    {
+        answer: 'ocean',
+        id: 154,
+        game: `Star Ocean 2`,
+        gameId: '57800'
     }
 ]
 
