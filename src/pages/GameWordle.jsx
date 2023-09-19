@@ -725,19 +725,19 @@ const gameWordleAnswers = [
         gameId: '27038'
     },
     {
-        answer: 'Elite',
+        answer: 'elite',
         id: 120,
         game: `Elite Beat Agents`,
         gameId: '25035'
     },
     {
-        answer: 'Devil',
+        answer: 'devil',
         id: 121,
         game: `Shin Megami Tensei Devil Survivor`,
         gameId: '25976'
     },
     {
-        answer: 'Trick',
+        answer: 'trick',
         id: 122,
         game: `Ghost Trick Phantom Detective`,
         gameId: '1317'
