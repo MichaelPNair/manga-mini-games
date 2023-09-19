@@ -1,17 +1,19 @@
 # Manga Mini Games
 
-This is a single page application done in HTML, CSS and Javascript with React and express. This utilizes the MangaDex API to let users play various games that fetch data from MangaDex such as manga titles, authors, artists and cover art.
+This is a single page application done in HTML, CSS and Javascript with React and express. This utilizes the MangaDex API and RAWG API to let users play various games that fetch data from MangaDex such as manga titles, authors, artists and cover art or data from RAWG such as game title, release date, platforms and art.
 
 ## Technologies used
 
 * HTML, CSS, JavaScript, Express, React, axios
 * Database: MongoDb, Mongoose
+* RAWG API
 * MangaDex API
 * Git
 
 ## Features
 
 * Login: You can create a user and login to keep the database keep track of how many games you have won in each minigame.
+* Game Word Guesser: Play a Wordle like game where you guess the mystery 5 letter word. If you correctly guess the word or give up, you will be shown details of a video game that has that word.
 * Manga Wordle: Play a Wordle like game where you guess the mystery 5 letter word. If you correctly guess the word or give up, you will be shown details of a manga that has that word.
 * Guess the Manga: You will have to guess a mystery manga by typing in its title. If you get it wrong, you will see what details of the manga you typed match the mystery manga.
 
@@ -21,13 +23,25 @@ This is a single page application done in HTML, CSS and Javascript with React an
 
 ## Getting Started
 
-At the start, you can choose to play the Manga Wordle or Guess The Manga. You can also log in or create an account at the top of the screen at any time.
+At the start, you can choose to play the Game Word Guesser or Manga Wordle or Guess The Manga. You can also log in or create an account at the top of the screen at any time.
+
+In Game Word Guesser, you have to guess a mystery 5 letter word that has appeared in a game title. After you make a guess, it will be revealed how close your guess is to the mystery word. Green letters denote correct letter and correct position and yellow letters denote correct letter but wrong position.
+
+Once you guess the word or you choose to give up, you will be shown details about a game related to the mystery word.
+
+Selecting a new game will give you a new word from a random pool to guess.
+
+You can also select a specific game word from the dropdown.
+
+There is no limit on the number of guesses you can try.
 
 In Manga Wordle, you have to guess a mystery 5 letter word that has appeared in a manga title. After you make a guess, it will be revealed how close your guess is to the mystery word. Green letters denote correct letter and correct position and yellow letters denote correct letter but wrong position.
 
 Once you guess the word or you choose to give up, you will be shown details about a manga related to the mystery word.
 
 Selecting a new game will give you a new word from a random pool to guess.
+
+You can also select a specific manga word from the dropdown.
 
 There is no limit on the number of guesses you can try.
 
@@ -50,6 +64,18 @@ There is no limit on the number of guesses you can try.
 
 ### Login Screen
 ![Screenshot of login screen](/Screenshots/LoginScreen.png)
+
+### Manga Wordle Initial Screen
+![Screenshot of initial screen for Game Word Guesser](/Screenshots/GameWordleInitial.png)
+
+### Game Word Guesser In Progress
+![Screenshot of Game Word Guesser in progress](/Screenshots/GameWordleExample.png)
+
+### Game Word Guesser Victory Screen
+![Screenshot of Manga Wordle Victory screen](/Screenshots/GameWordleVictory.png)
+
+### Game Word Guesser Defeat Screen
+![Screenshot of Manga Wordle Defeat screen](/Screenshots/GameWordleGiveUp.png)
 
 ### Manga Wordle Initial Screen
 ![Screenshot of initial screen for Manga Wordle](/Screenshots/MangaWordleInitial.png)
@@ -84,7 +110,6 @@ There is no limit on the number of guesses you can try.
 
 * Improve style of webpage
 * Add animations to make games feel better
-* Allow selecting new manga wordle game by Id
 * Toggle to show or hide current game Id
 * Move Wordle answers and color validation to a server to prevent it being visible in browser dev tools
 * Make games more colour blind friendly (eg. patterns instead of colours to indicate match)
