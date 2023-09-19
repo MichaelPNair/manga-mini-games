@@ -1,3 +1,14 @@
 .enter-symbol {
     cursor: pointer;
 }
+
+.manga-wordle input {
+    width: 80%;
+    aspect-ratio: 7/1;
+}
+
+@media (min-width: 40rem) {
+    .manga-wordle input {
+        width: initial;
+    }
+}

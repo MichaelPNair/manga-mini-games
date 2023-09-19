@@ -723,7 +723,7 @@ export default function MangaWordle({onClickHome, user}) {
     }
 
 
-    return <div>
+    return <div className="manga-wordle">
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
         <h2>Mangdle</h2>

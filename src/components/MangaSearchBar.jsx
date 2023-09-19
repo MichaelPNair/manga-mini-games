@@ -86,7 +86,7 @@ export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, u
     }
 
 
-    return <div>
+    return <div className="manga-search-bar">
         <input autoFocus ref={inputRef} hidden={isMangaSelected} type="text" value={searchText} onChange={handleChange} />
         {showSelectedManga()}
         <div className="search-results-grid">

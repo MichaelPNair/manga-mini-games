@@ -8,25 +8,61 @@
 
 .wordle-guess-wrapper .green-letter {
     display: flex;
-    width: 30px;
-    height: 30px;
+    width: 17%;
+    aspect-ratio: 1/1;
     justify-content: center;
     align-items: center;
     background-color: green;
 }
 .wordle-guess-wrapper .yellow-letter {
     display: flex;
-    width: 30px;
-    height: 30px;
+    width: 17%;
+    aspect-ratio: 1/1;
     justify-content: center;
     align-items: center;
     background-color: darkgoldenrod;
 }
 .wordle-guess-wrapper .grey-letter {
     display: flex;
-    width: 30px;
-    height: 30px;
+    width: 17%;
+    aspect-ratio: 1/1;
     justify-content: center;
     align-items: center;
     background-color: grey;
+}
+
+
+@media (min-width: 40rem) {
+    .wordle-guess-wrapper {
+        display: flex;
+        justify-content: center;
+        color: white;
+        margin-bottom: 10px;
+        gap: 3px;
+    }
+    
+    .wordle-guess-wrapper .green-letter {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: green;
+    }
+    .wordle-guess-wrapper .yellow-letter {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: darkgoldenrod;
+    }
+    .wordle-guess-wrapper .grey-letter {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: grey;
+    }
 }

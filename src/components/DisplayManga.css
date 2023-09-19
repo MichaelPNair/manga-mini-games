@@ -9,7 +9,7 @@
     background-color: darkslategray;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 60%;
+    width: 90%;
     border-radius: 25px;
     overflow: hidden;
 }
@@ -30,7 +30,16 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 150px;
-    width: 60%;
+    width: 90%;
     border-radius: 25px;
     overflow: hidden;
+}
+
+@media (min-width: 40rem) {
+    .display-manga-area .display-manga-section {
+        width: 60%;
+    }
+    .display-manga-area .loading-manga-section{
+        width: 60%;
+    }
 }

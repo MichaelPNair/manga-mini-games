@@ -8,8 +8,8 @@
 
 .wordle-input-wrapper .guess-letter {
     display: flex;
-    width: 30px;
-    height: 30px;
+    width: 17%;
+    aspect-ratio: 1/1;
     justify-content: center;
     align-items: center;
     background-color: grey;
@@ -17,10 +17,39 @@
 
 .wordle-input-wrapper .empty-letter {
     display: flex;
-    width: 30px;
-    height: 30px;
+    width: 17%;
+    aspect-ratio: 1/1;
     justify-content: center;
     align-items: center;
     background-color: white;
     border: 2px solid grey;
+}
+
+@media (min-width: 40rem) {
+    .wordle-input-wrapper {
+        display: flex;
+        justify-content: center;
+        color: white;
+        margin-bottom: 10px;
+        gap: 3px;
+    }
+    
+    .wordle-input-wrapper .guess-letter {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: grey;
+    }
+    
+    .wordle-input-wrapper .empty-letter {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border: 2px solid grey;
+    }
 }

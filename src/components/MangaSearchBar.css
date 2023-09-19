@@ -4,3 +4,14 @@
     gap: 2px;
     margin-top: 15px;
 }
+
+.manga-search-bar input {
+    width: 80%;
+    aspect-ratio: 7/1;
+}
+
+@media (min-width: 40rem) {
+    .manga-search-bar input {
+        width: initial;
+    }
+}

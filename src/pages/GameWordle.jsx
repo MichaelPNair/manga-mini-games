@@ -1228,7 +1228,7 @@ export default function GameWordle({onClickHome, user}) {
     }
 
 
-    return <div>
+    return <div className="game-wordle">
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
         <h2>Video Game Word Guesser</h2>
