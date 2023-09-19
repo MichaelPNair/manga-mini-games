@@ -6,7 +6,7 @@ export default function SelectGames({onClickGuess, onClickDoku, onClickWordle, o
 
         {/* <p>Login to keep track of your wins!</p> */}
         <button onClick={onClickGameWordle}>Game Word Guesser</button>
-        <button onClick={onClickWordle}>Mangle</button>
+        <button onClick={onClickWordle}>Mangdle</button>
         <button onClick={onClickGuess}>Guess the Manga</button>
         {/* <button onClick={onClickDoku}>Manga-doku</button> */}
 

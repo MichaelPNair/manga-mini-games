@@ -372,7 +372,7 @@ const gameWordleAnswers = [
     },
     {
         answer: 'theft',
-        id: 4,
+        id: 61,
         game: 'grand theft auto III',
         gameId: '432'
     },
@@ -933,6 +933,12 @@ const gameWordleAnswers = [
         id: 154,
         game: `Star Ocean 2`,
         gameId: '57800'
+    },
+    {
+        answer: 'crypt',
+        id: 155,
+        game: `Crypt of the Necrodancer`,
+        gameId: '2845'
     }
 ]
 
