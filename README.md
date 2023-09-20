@@ -17,6 +17,7 @@ This is a single page application done in HTML, CSS and Javascript with React an
 * Manga Wordle: Play a Wordle like game where you guess the mystery 5 letter word. If you correctly guess the word or give up, you will be shown details of a manga that has that word.
 * Guess the Manga: You will have to guess a mystery manga by typing in its title. If you get it wrong, you will see what details of the manga you typed match the mystery manga.
 
+
 ## About me
 
 - Michael Nair [GitHub Profile](https://github.com/MichaelPNair)
