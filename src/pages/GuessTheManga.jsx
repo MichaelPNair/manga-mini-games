@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import BackButton from "../components/BackButton";
 import MainTitle from "../components/MainTitle";
-import axios from "axios";
 import CompareDetails from "../components/CompareDetails";
 import './GuessTheManga.css'
 import DisplayManga from "../components/DisplayManga";
 import MangaSearchBar from "../components/MangaSearchBar";
 import { getWinCounts, updateMangaGuessCount } from "../utils/updateGameCount";
+import getMangaDetailsById from "../utils/getMangaDetailsById";
 
 const mangaAnswers = [
     {
@@ -889,12 +889,14 @@ export default function GuessTheManga({onClickHome, user}) {
 
     const [countFromAPI, setCountFromAPI] = useState(null)
 
+    const [showHint, setShowHint] = useState(false)
+
     const inputRef = useRef(null)
 
 
     useEffect(() => {
 
-        axios.get(`https://api.mangadex.org/manga/${gameAnswer.mangaId}?includes%5B%5D=manga&includes%5B%5D=cover_art&includes%5B%5D=author&includes%5B%5D=artist`)
+        getMangaDetailsById(gameAnswer.mangaId)
             .then(res => {
 
                 setAnswerDetails(res.data)
@@ -970,6 +972,7 @@ export default function GuessTheManga({onClickHome, user}) {
         setGameAnswer(mangaAnswers[Math.floor(Math.random()* mangaAnswers.length)])
         setSearchText('')
         setIsMangaSelected(false)
+        setShowHint(false)
     }
 
     async function handleWin(){
@@ -1009,6 +1012,10 @@ export default function GuessTheManga({onClickHome, user}) {
         setIsMangaSelected(false)
     }
 
+    function handleHintClick(){
+        setShowHint(true)
+    }
+
 
 
 
@@ -1019,6 +1026,7 @@ export default function GuessTheManga({onClickHome, user}) {
         <button disabled={!isFinished} onClick={handleNewGame}>New Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give up</button>
         <p>What manga am I thinking of?</p>
+        {showHint ? <p>Author: {authors.join(', ')}</p> : <button onClick={handleHintClick}>Show Hint</button>}
         {user ? <p>You have won {countFromAPI} times</p> : false}
         <p>{isWon && `Congratulations! The manga was ${title}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The manga was ${title}!`}</p>
