@@ -4,7 +4,6 @@ import MainTitle from "../components/MainTitle";
 import WordleGuess from "../components/WordleGuess";
 import WordleDuringInput from "../components/WordleDuringInput";
 import WordleKeyboard from "../components/WordleKeyboard";
-import DisplayManga from "../components/DisplayManga";
 import './GameWordle.css'
 import { getWinCounts, updateMangaWordleCount } from "../utils/updateGameCount";
 import DisplayGame from "../components/DisplayGame";
@@ -1041,6 +1040,120 @@ const gameWordleAnswers = [
         id: 172,
         game: `Sid Meier's Civilization: Beyond Earth`,
         gameId: '13694'
+    },
+    {
+        answer: 'bully',
+        id: 173,
+        game: `Bully`,
+        gameId: '2634'
+    },
+    {
+        answer: 'dirge',
+        id: 174,
+        game: `Dirge of Cerberus: Final Fantasy VII`,
+        gameId: '267219'
+    },
+    {
+        answer: 'truck',
+        id: 175,
+        game: `Euro Truck Simulator 2`,
+        gameId: '9609'
+    },
+    {
+        answer: 'where',
+        id: 176,
+        game: `Where in the World Is Carmen Sandiego?`,
+        gameId: '34944'
+    },
+    {
+        answer: 'mount',
+        id: 177,
+        game: `Mount & Blade`,
+        gameId: '16813'
+    },
+    {
+        answer: 'theme',
+        id: 178,
+        game: `Theme Park`,
+        gameId: '22953'
+    },
+    {
+        answer: 'spore',
+        id: 179,
+        game: `Spore`,
+        gameId: '11425'
+    },
+    {
+        answer: 'siege',
+        id: 180,
+        game: `Dungeon Siege`,
+        gameId: '16144'
+    },
+    {
+        answer: 'souls',
+        id: 181,
+        game: `Demons Souls`,
+        gameId: '452648'
+    },
+    {
+        answer: 'human',
+        id: 182,
+        game: `Detroit: Become Human`,
+        gameId: '29177'
+    },
+    {
+        answer: 'wrath',
+        id: 183,
+        game: `Ni no Kuni: Wrath of the White Witch`,
+        gameId: '4128'
+    },
+    {
+        answer: 'happy',
+        id: 184,
+        game: `Animal Crossing: Happy Home Designer`,
+        gameId: '27986'
+    },
+    {
+        answer: 'joker',
+        id: 185,
+        game: `Dragon Quest Monsters: Joker`,
+        gameId: '25300'
+    },
+    {
+        answer: 'party',
+        id: 186,
+        game: `Mario Party Superstars`,
+        gameId: '622494'
+    },
+    {
+        answer: 'power',
+        id: 187,
+        game: `Mario Power Tennis`,
+        gameId: '27138'
+    },
+    {
+        answer: 'dread',
+        id: 188,
+        game: `Metroid Dread`,
+        gameId: '622495'
+    },
+    {
+        answer: 'chain',
+        id: 189,
+        game: `Astral Chain`,
+        gameId: '292843'
+    },
+    {
+        answer: 'enter',
+        id: 190,
+        game: `Enter the Gungeon`,
+        gameId: '2574'
+    },
+    {
+        answer: 'human',
+        id: 191,
+        game: `Human: Fall Flat`,
+        gameId: '13247'
     }
 ]
 
