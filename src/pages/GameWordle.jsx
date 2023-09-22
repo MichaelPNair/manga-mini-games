@@ -702,8 +702,8 @@ const gameWordleAnswers = [
     {
         answer: 'tales',
         id: 116,
-        game: `Tales of Arise`,
-        gameId: '326244'
+        game: `Tales of Vesperia`,
+        gameId: '272421'
     },
     {
         answer: 'fires',
@@ -1154,6 +1154,60 @@ const gameWordleAnswers = [
         id: 191,
         game: `Human: Fall Flat`,
         gameId: '13247'
+    },
+    {
+        answer: 'piece',
+        id: 192,
+        game: `One Piece Odyssey`,
+        gameId: '761343'
+    },
+    {
+        answer: 'arise',
+        id: 193,
+        game: `Tales of Arise`,
+        gameId: '326244'
+    },
+    {
+        answer: 'steel',
+        id: 194,
+        game: `The Legend of Heroes: Trails of Cold Steel III`,
+        gameId: '395971'
+    },
+    {
+        answer: 'titan',
+        id: 195,
+        game: `Titan Quest`,
+        gameId: '37751'
+    },
+    {
+        answer: 'force',
+        id: 196,
+        game: `Freedom Force`,
+        gameId: '19619'
+    },
+    {
+        answer: 'queen',
+        id: 197,
+        game: `Ogre Battle: The March of the Black Queen`,
+        gameId: '25830'
+    },
+    {
+        answer: 'bride',
+        id: 198,
+        game: `Dragon Quest V: Hand of the Heavenly Bride`,
+        gameId: '25830'
+    },
+    {
+        answer: 'quest',
+        id: 199,
+        game: `Ultima IV: Quest of the Avatar`,
+        gameId: '54122'
+    },
+    {
+        answer: 'final',
+        id: 200,
+        game: `Final Fantasy IX`,
+        gameId: '52943'
     }
 ]
 
