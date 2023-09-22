@@ -24,7 +24,7 @@ const gameWordleAnswers = [
     {
         answer: 'grand',
         id: 3,
-        game: 'grand theft auto V',
+        game: 'Grand Theft Auto V',
         gameId: '3498'
     },
     {
@@ -36,7 +36,7 @@ const gameWordleAnswers = [
     {
         answer: 'world',
         id: 5,
-        game: 'super mario world',
+        game: 'Super Mario World',
         gameId: '24899'
     },
     {
@@ -258,7 +258,7 @@ const gameWordleAnswers = [
     {
         answer: 'black',
         id: 42,
-        game: `Assassin's creen IV Black Flag`,
+        game: `Assassin's Creed IV Black Flag`,
         gameId: '3841'
     },
     {
@@ -372,7 +372,7 @@ const gameWordleAnswers = [
     {
         answer: 'theft',
         id: 61,
-        game: 'grand theft auto III',
+        game: 'Grand Theft Auto III',
         gameId: '432'
     },
     {
@@ -1195,7 +1195,7 @@ const gameWordleAnswers = [
         answer: 'bride',
         id: 198,
         game: `Dragon Quest V: Hand of the Heavenly Bride`,
-        gameId: '25830'
+        gameId: '25823'
     },
     {
         answer: 'quest',
@@ -1206,8 +1206,8 @@ const gameWordleAnswers = [
     {
         answer: 'final',
         id: 200,
-        game: `Final Fantasy IX`,
-        gameId: '52943'
+        game: `Final Fantasy XVI`,
+        gameId: '494382'
     }
 ]
 
@@ -1406,7 +1406,7 @@ export default function GameWordle({onClickHome, user}) {
         {user && <p>You have won {countFromAPI} times</p>}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
-        {isFinished && <DisplayGame gameId={gameAnswer.gameId}/>}
+        {isFinished && <DisplayGame gameId={gameAnswer.gameId} gameAnswerName={gameAnswer.game}/>}
         {guesses.map((guess, idx) => <WordleGuess key={idx} guess={guess} answer={gameAnswer.answer}/>)}
         {!isFinished && <WordleDuringInput text={newGuessText}/>}
 

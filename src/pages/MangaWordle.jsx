@@ -42,7 +42,7 @@ const wordleAnswers = [
     {
         answer: 'witch',
         id: 6,
-        manga: 'witch hat atelier',
+        manga: 'Witch Hat Atelier',
         mangaId: '67e7453b-9ee5-4ae5-9316-215b03e4a71d'
     },
     {
@@ -114,7 +114,7 @@ const wordleAnswers = [
     {
         answer: 'black',
         id: 18,
-        manga: 'Black butler',
+        manga: 'Black Butler',
         mangaId: '8bd19e5c-94f7-4368-a918-50f463857446'
     },
     {
@@ -168,7 +168,7 @@ const wordleAnswers = [
     {
         answer: 'ocean',
         id: 27,
-        manga: 'Jojos bizzare adventure stone ocean',
+        manga: 'Jojos Bizzare Adventure: Stone Ocean',
         mangaId: 'ea57752d-acb7-469e-aa60-43e694ded9a9'
     },
     {
@@ -222,7 +222,7 @@ const wordleAnswers = [
     {
         answer: 'slump',
         id: 36,
-        manga: 'dr Slump',
+        manga: 'Dr Slump',
         mangaId: '985e4ae6-7a36-42c5-ae12-f4291c58798c'
     },
     {
@@ -240,91 +240,91 @@ const wordleAnswers = [
     {
         answer: 'happy',
         id: 39,
-        manga: 'happy!',
+        manga: 'Happy!',
         mangaId: 'd670572b-d21a-474c-a03d-7ec50bd53030'
     },
     {
         answer: 'seven',
         id: 40,
-        manga: 'seven deadly sins',
+        manga: 'Seven Deadly Sins',
         mangaId: 'e52d9403-3356-403b-b7bb-d7d6a420dd50'
     },
     {
         answer: 'pedal',
         id: 41,
-        manga: 'yowamushi pedal',
+        manga: 'Yowamushi Pedal',
         mangaId: '003e7fbf-f047-4783-a7df-1533a2a653d4'
     },
     {
         answer: 'heart',
         id: 42,
-        manga: 'angel heart',
+        manga: 'Angel Heart',
         mangaId: '31be4cc4-d7c8-47d7-9d80-4f1b2db7979e'
     },
     {
         answer: 'fable',
         id: 43,
-        manga: 'the fable',
+        manga: 'The Fable',
         mangaId: '5209fe10-4a14-403f-8837-2ccf8cced253'
     },
     {
         answer: 'force',
         id: 44,
-        manga: 'fire force',
+        manga: 'Fire Force',
         mangaId: 'ec514ef4-fb77-43b9-b9b4-528229de1308'
     },
     {
         answer: 'giant',
         id: 45,
-        manga: 'giant killing',
+        manga: 'Giant Killing',
         mangaId: '3b6c3a0b-8752-41fc-9d3e-1310f6f28252'
     },
     {
         answer: 'drops',
         id: 46,
-        manga: 'drops of god',
+        manga: 'Drops of God',
         mangaId: 'd9414237-832b-46a7-9fb4-1c66f4b97736'
     },
     {
         answer: 'punch',
         id: 47,
-        manga: 'fire punch',
+        manga: 'Fire Punch',
         mangaId: '6fef1f74-a0ad-4f0d-99db-d32a7cd24098'
     },
     {
         answer: 'otaku',
         id: 48,
-        manga: 'wotakoi',
+        manga: 'Wotakoi',
         mangaId: '65263bf9-4f87-4513-b72f-ad6436b3911c'
     },
     {
         answer: 'abyss',
         id: 49,
-        manga: 'made in abyss',
+        manga: 'Made in Abyss',
         mangaId: '80422e14-b9ad-4fda-970f-de370d5fa4e5'
     },
     {
         answer: 'given',
         id: 50,
-        manga: 'given',
+        manga: 'Given',
         mangaId: '039d717e-9690-47fd-944d-93161b97fbac'
     },
     {
         answer: 'cross',
         id: 51,
-        manga: 'cross game',
+        manga: 'Cross Game',
         mangaId: '8bd288e6-7c5a-403a-b5b6-a845a70ca376'
     },
     {
         answer: 'giant',
         id: 52,
-        manga: 'blue giant',
+        manga: 'Blue Giant',
         mangaId: '1090afe3-3b91-4325-a9b4-d92875aa815e'
     },
     {
         answer: 'house',
         id: 53,
-        manga: 'Radiation house',
+        manga: 'Radiation House',
         mangaId: '96338481-0531-4a25-b209-152e4178684b'
     },
     {
@@ -348,13 +348,13 @@ const wordleAnswers = [
     {
         answer: 'black',
         id: 57,
-        manga: 'black lagoon',
+        manga: 'Black Lagoon',
         mangaId: '6da0b34b-db19-491a-b85c-6e31e0986f15'
     },
     {
         answer: 'seeds',
         id: 58,
-        manga: '7 seeds',
+        manga: '7 Seeds',
         mangaId: 'ce47b821-988c-4abf-a8dd-864cef84585a'
     },
     {
@@ -366,43 +366,43 @@ const wordleAnswers = [
     {
         answer: 'clear',
         id: 60,
-        manga: 'cardcaptor sakura clear card',
+        manga: 'Cardcaptor Sakura Clear Card',
         mangaId: '78218ec5-b7ea-4c03-accd-df98c3d8e350'
     },
     {
         answer: 'score',
         id: 61,
-        manga: 'high score girl',
+        manga: 'High Score Girl',
         mangaId: 'a59ec084-aed4-4a49-abc1-ae08cf7a9aa7'
     },
     {
         answer: 'steps',
         id: 62,
-        manga: 'baby steps',
+        manga: 'Baby Steps',
         mangaId: 'c433f163-d610-49ba-a031-a1f3b6377af2'
     },
     {
         answer: 'eater',
         id: 63,
-        manga: 'soul eater',
+        manga: 'Soul Eater',
         mangaId: '53ef1720-7a5d-40ad-90b0-2f9ca0a1ab01'
     },
     {
         answer: 'blast',
         id: 64,
-        manga: 'sayuki reload blast',
+        manga: 'Sayuki reload blast',
         mangaId: '09aa712c-1457-4779-b2a0-877099a4c0e2'
     },
     {
         answer: 'rough',
         id: 65,
-        manga: 'rough',
+        manga: 'Rough',
         mangaId: '7cdc3e9a-e948-4bd6-9b57-e7fc4e92df63'
     },
     {
         answer: 'hotel',
         id: 66,
-        manga: 'voynich hotel',
+        manga: 'Voynich hotel',
         mangaId: 'f75812e9-27bb-44d5-9cb1-25de07ceb326'
     },
     {
@@ -414,73 +414,73 @@ const wordleAnswers = [
     {
         answer: 'dress',
         id: 68,
-        manga: 'My dress up darling',
+        manga: 'My Dress Up Darling',
         mangaId: 'aa6c76f7-5f5f-46b6-a800-911145f81b9b'
     },
     {
         answer: 'harem',
         id: 69,
-        manga: 'giji harem',
+        manga: 'Giji Harem',
         mangaId: 'd8f9afe2-aa44-4bc6-9145-eebb1f282372'
     },
     {
         answer: 'sword',
         id: 70,
-        manga: 'sword art online',
+        manga: 'Sword Art Online',
         mangaId: '3dd0b814-23f4-4342-b75b-f206598534f6'
     },
     {
         answer: 'black',
         id: 71,
-        manga: 'black cat',
+        manga: 'Black Cat',
         mangaId: 'b8627f53-f262-49dc-ad4a-89e8f15baa47'
     },
     {
         answer: 'tokyo',
         id: 72,
-        manga: 'tokyo revengers',
+        manga: 'Tokyo Revengers',
         mangaId: '59b36734-f2d6-46d7-97c0-06cfd2380852'
     },
     {
         answer: 'books',
         id: 73,
-        manga: 'ascendence of a bookworm',
+        manga: 'Ascendence of a Bookworm',
         mangaId: 'c0ad8919-4646-4a61-adf9-0fd6d8612efa'
     },
     {
         answer: 'train',
         id: 74,
-        manga: 'densha otoko',
+        manga: 'Densha Otoko',
         mangaId: '7b514e78-ce00-44c2-aa6f-718e17f782f2'
     },
     {
         answer: 'witch',
         id: 75,
-        manga: 'flying witch',
+        manga: 'Flying Witch',
         mangaId: 'f7f430ab-2c24-49d3-b698-c9ff4787805b'
     },
     {
         answer: 'uncle',
         id: 76,
-        manga: 'isekai ojisan',
+        manga: 'Isekai Ojisan',
         mangaId: 'd8f1d7da-8bb1-407b-8be3-10ac2894d3c6'
     },
     {
         answer: 'lucky',
         id: 77,
-        manga: 'lucky star',
+        manga: 'Lucky Star',
         mangaId: '31fbb1af-3df1-496e-992f-b7f96a34d1ab'
     },
     {
         answer: 'saint',
         id: 78,
-        manga: 'saint young men',
+        manga: 'Saint Young Men',
         mangaId: 'e1d6dd1c-5ceb-44f7-bfe6-f74199288b07'
     },
     {
         answer: 'candy',
         id: 79,
-        manga: 'candy candy',
+        manga: 'Candy Candy',
         mangaId: '0b2beaa6-08df-44e5-a404-ecee109744fc'
     },
     {
@@ -504,13 +504,13 @@ const wordleAnswers = [
     {
         answer: 'seven',
         id: 83,
-        manga: 'trinity seven',
+        manga: 'Trinity Seven',
         mangaId: '12ac16ec-8894-420b-bc03-eade9340dfd8'
     },
     {
         answer: 'blade',
         id: 84,
-        manga: 'break blade',
+        manga: 'Break Blade',
         mangaId: 'cc70ba46-e0d4-4240-98ba-adb86c82ff6b'
     },
     {
@@ -534,7 +534,7 @@ const wordleAnswers = [
     {
         answer: 'japan',
         id: 88,
-        manga: 'yakitate japan',
+        manga: 'Yakitate Japan',
         mangaId: '0c29ce86-04c7-45cb-b623-70510b2064e3'
     }
     
@@ -734,7 +734,7 @@ export default function MangaWordle({onClickHome, user}) {
         {user && <p>You have won {countFromAPI} times</p>}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
         <p>{(isFinished && !isWon) && `Too bad! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1).toLowerCase()}!`}</p>
-        {isFinished && <DisplayManga mangaId={gameAnswer.mangaId}/>}
+        {isFinished && <DisplayManga mangaId={gameAnswer.mangaId} gameAnswerName={gameAnswer.manga}/>}
         {guesses.map((guess, idx) => <WordleGuess key={idx} guess={guess} answer={gameAnswer.answer}/>)}
         {!isFinished && <WordleDuringInput text={newGuessText}/>}
 

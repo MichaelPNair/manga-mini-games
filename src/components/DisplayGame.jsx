@@ -3,7 +3,7 @@ import "./DisplayGame.css"
 import getGameDetailsById from "../utils/getGameDetailsById"
 
 
-export default function DisplayGame({gameId}) {
+export default function DisplayGame({gameId, gameAnswerName}) {
 
     const [gameDetails, setGameDetails] = useState(null)
 
@@ -68,7 +68,7 @@ export default function DisplayGame({gameId}) {
                 </div>
             </section>
            :
-           <section className="loading-game-section">Loading Game Details...</section>
+           <section className="loading-game-section">Loading Game Details - {gameAnswerName} ...</section>
         }
     </div>
 }

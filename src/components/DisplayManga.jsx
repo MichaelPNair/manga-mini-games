@@ -3,7 +3,7 @@ import "./DisplayManga.css"
 import getMangaDetailsById from "../utils/getMangaDetailsById"
 
 
-export default function DisplayManga({mangaId}) {
+export default function DisplayManga({mangaId, gameAnswerName}) {
 
     const [mangaDetails, setMangaDetails] = useState(null)
 
@@ -64,7 +64,7 @@ export default function DisplayManga({mangaId}) {
                 </div>
             </section>
            :
-           <section className="loading-manga-section">Loading ...</section>
+           <section className="loading-manga-section">Loading manga details -  {gameAnswerName} ...</section>
         }
     </div>
 }
