@@ -27,6 +27,7 @@ export default function DisplayGame({gameId, gameAnswerName}) {
     let platforms
     let developers
     let publishers
+    let genres
 
     if (gameDetails) {
         gameName = gameDetails.name
@@ -47,6 +48,10 @@ export default function DisplayGame({gameId, gameAnswerName}) {
         .map(publisher => publisher.name)
         .join(', ')
 
+        genres = gameDetails.genres
+        .map(genre => genre.name)
+        .join(', ')
+
     }
 
 
@@ -62,6 +67,7 @@ export default function DisplayGame({gameId, gameAnswerName}) {
                     <p>Release Date: {releaseDate}</p>
                     <p>Metacritic: {metacritic}</p>
                     <p>Platforms: {platforms}</p>
+                    <p>Genres: {genres}</p>
                     <p>Developed By: {developers}</p>
                     <p>Published By: {publishers}</p>
                     <p>Description: {description}</p>
