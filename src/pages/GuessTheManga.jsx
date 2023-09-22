@@ -338,6 +338,16 @@ const mangaAnswers = [
         id: 67,
         manga: 'Chihayafuru',
         mangaId: 'd7d5f269-6969-4f86-af89-ee57a6180f36'
+    },
+    {
+        id: 68,
+        manga: 'Yakitate Japan',
+        mangaId: '0c29ce86-04c7-45cb-b623-70510b2064e3'
+    },
+    {
+        id: 69,
+        manga: 'Candy Candy',
+        mangaId: '0b2beaa6-08df-44e5-a404-ecee109744fc'
     }
 ]
 
