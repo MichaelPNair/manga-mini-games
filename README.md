@@ -63,9 +63,6 @@ There is no limit on the number of guesses you can try.
 ### Initial Screen
 ![Screenshot of initial screen](/Screenshots/InitialScreen.png)
 
-### Login Screen
-![Screenshot of login screen](/Screenshots/LoginScreen.png)
-
 ### Manga Wordle Initial Screen
 ![Screenshot of initial screen for Game Word Guesser](/Screenshots/GameWordleInitial.png)
 
@@ -98,6 +95,9 @@ There is no limit on the number of guesses you can try.
 
 ### Guess the Manga with guess
 ![Screenshot of Guess the Manga with 1 guess](/Screenshots/GuessTheMangaGuess.png)
+
+### Guess the Manga with hint revealed
+![Screenshot of Guess the Manga with hint revealed](/Screenshots/GuessTheMangaHint.png)
 
 ### Guess the Manga Victory Screen
 ![Screenshot of Guess the Manga Victory screen](/Screenshots/GuessTheMangaVictory.png)
