@@ -726,7 +726,7 @@ export default function MangaWordle({onClickHome, user}) {
     return <div className="manga-wordle">
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
-        <h2>Mangdle</h2>
+        <h2>Mangle</h2>
         <button disabled={!isFinished} onClick={handleNewGame}>New Random Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
         <p>Guess the word</p>

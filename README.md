@@ -36,7 +36,7 @@ You can also select a specific game word from the dropdown.
 
 There is no limit on the number of guesses you can try.
 
-In Manga Wordle, you have to guess a mystery 5 letter word that has appeared in a manga title. After you make a guess, it will be revealed how close your guess is to the mystery word. Green letters denote correct letter and correct position and yellow letters denote correct letter but wrong position.
+In Mangle, you have to guess a mystery 5 letter word that has appeared in a manga title. After you make a guess, it will be revealed how close your guess is to the mystery word. Green letters denote correct letter and correct position and yellow letters denote correct letter but wrong position.
 
 Once you guess the word or you choose to give up, you will be shown details about a manga related to the mystery word.
 

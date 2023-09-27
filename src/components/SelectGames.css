@@ -1,4 +1,11 @@
+.select-games .buttons{
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-items: center;
+}
+
 .select-games button{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
+    width: 120px;
+    height: 40px;
 }
