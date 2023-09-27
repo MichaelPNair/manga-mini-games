@@ -629,10 +629,10 @@ export default function MangaWordle({onClickHome, user}) {
 
     function handleSymbolClick(){
         if (newGuessText.length === 5){
-            setGuesses([...guesses, newGuessText])
-            changeKeyboardColor(newGuessText)
+            setGuesses([...guesses, newGuessText.toLowerCase()])
+            changeKeyboardColor(newGuessText.toLowerCase())
             setNewGuessText('')
-            if (newGuessText === gameAnswer.answer) {
+            if (newGuessText.toLowerCase() === gameAnswer.answer) {
                 handleWin()
             } else {
                 inputRef.current.focus()
@@ -643,10 +643,10 @@ export default function MangaWordle({onClickHome, user}) {
     function handleEnter(e){
         if (e.keyCode === 13) {
             if (newGuessText.length === 5){
-                setGuesses([...guesses, newGuessText])
-                changeKeyboardColor(newGuessText)
+                setGuesses([...guesses, newGuessText.toLowerCase()])
+                changeKeyboardColor(newGuessText.toLowerCase())
                 setNewGuessText('')
-                if (newGuessText === gameAnswer.answer) {
+                if (newGuessText.toLowerCase() === gameAnswer.answer) {
                     handleWin()
                 }
             }
