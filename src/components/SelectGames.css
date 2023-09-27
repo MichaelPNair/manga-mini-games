@@ -6,6 +6,7 @@
 
 .select-games button{
     margin: 10px;
-    width: 120px;
-    height: 40px;
+    width: 240px;
+    height: 60px;
+    font-size: larger;
 }
