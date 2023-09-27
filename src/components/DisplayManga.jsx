@@ -49,7 +49,7 @@ export default function DisplayManga({mangaId, gameAnswerName}) {
         demographic = mangaDetails.data.attributes.publicationDemographic
 
         tags = mangaDetails.data.attributes.tags
-            map(tag => tag.attributes.name.en)
+            .map(tag => tag.attributes.name.en)
             .join(', ')
 
         
