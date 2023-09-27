@@ -54,7 +54,7 @@ export default function DisplayManga({mangaId, gameAnswerName}) {
         {
             mangaDetails ?
             <section className="display-manga-section">
-                <img src={`https://uploads.mangadex.org/covers/${mangaId}/${coverId}.256.jpg`} alt="cover art" /> 
+                {/* <img src={`https://uploads.mangadex.org/covers/${mangaId}/${coverId}.256.jpg`} alt="cover art" />  */}
                 <div className="manga-section-right-box">
                     <p>Title: {title}</p>
                     {altTitles.length > 0 && <p>Alt Title: {altTitles}</p>}
