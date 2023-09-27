@@ -23,6 +23,8 @@ export default function DisplayManga({mangaId, gameAnswerName}) {
     let artists
     let coverId
     let altTitles
+    let demographic
+    let tags
 
     if (mangaDetails) {
         title = mangaDetails.data.attributes.title.en
@@ -44,6 +46,12 @@ export default function DisplayManga({mangaId, gameAnswerName}) {
         coverId = mangaDetails.data.relationships
             .filter(relationship => relationship.type === 'cover_art')[0].attributes.fileName
 
+        demographic = mangaDetails.data.attributes.publicationDemographic
+
+        tags = mangaDetails.data.attributes.tags
+            map(tag => tag.attributes.name.en)
+            .join(', ')
+
         
     }
 
@@ -60,6 +68,8 @@ export default function DisplayManga({mangaId, gameAnswerName}) {
                     {altTitles.length > 0 && <p>Alt Title: {altTitles}</p>}
                     <p>Author: {authors}</p>
                     <p>Artist: {artists}</p>
+                    <p>Demographic: {demographic}</p>
+                    <p>Tags: {tags}</p>
                     <p>Description: {mangaDetails.data.attributes.description.en}</p>
                 </div>
             </section>
