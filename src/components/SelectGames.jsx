@@ -1,6 +1,6 @@
 import './SelectGames.css'
 
-export default function SelectGames({onClickGuess, onClickDoku, onClickWordle, onClickGameWordle}) {
+export default function SelectGames({onClickGuess, onClickDoku, onClickWordle, onClickGameWordle, onClickMovieWordle}) {
 
     return <div className='select-games'>
 
@@ -8,6 +8,7 @@ export default function SelectGames({onClickGuess, onClickDoku, onClickWordle, o
         <div className='buttons'>
             <button onClick={onClickGameWordle}>Game Word Guesser</button>
             <button onClick={onClickWordle}>Mangle</button>
+            <button onClick={onClickMovieWordle}>Movie Word Guesser</button>
             <button onClick={onClickGuess}>Guess the Manga</button>
         </div>
         {/* <button onClick={onClickDoku}>Manga-doku</button> */}
