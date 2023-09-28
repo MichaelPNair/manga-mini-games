@@ -14,121 +14,121 @@ const wordleAnswers = [
         answer: 'water',
         id: 1,
         movie: `Avatar: The Way of Water`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt1630029'
     },
     {
         answer: 'force',
         id: 2,
         movie: `Star Wars: The Force Awakens`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt2488496'
     },
     {
         answer: 'world',
         id: 3,
         movie: `Jurassic World`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0369610'
     },
     {
         answer: 'movie',
         id: 4,
         movie: `The Super Mario Bros. Movie`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt6718170'
     },
     {
         answer: 'black',
         id: 5,
         movie: `Black Panther`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt1825683'
     },
     {
         answer: 'beast',
         id: 6,
         movie: `Beauty and the Beast`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt2771200'
     },
     {
         answer: 'civil',
         id: 7,
         movie: `Captain America: Civil War`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt3498820'
     },
     {
         answer: 'rings',
         id: 8,
         movie: `The Lord of the Rings: The Return of the King`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0167260'
     },
     {
         answer: 'rises',
         id: 9,
         movie: `The Dark Knight Rises`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt1345836'
     },
     {
         answer: 'joker',
         id: 10,
         movie: `Joker`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt7286456'
     },
     {
         answer: 'story',
         id: 11,
         movie: `Toy Story 4`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt1979376'
     },
     {
         answer: 'chest',
         id: 12,
         movie: `Pirates of the Caribbean: Dead Man's Chest`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0383574'
     },
     {
         answer: 'rogue',
         id: 13,
         movie: `Rogue One: A Star Wars Story`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt3748528'
     },
     {
         answer: 'tides',
         id: 14,
         movie: `Pirates of the Caribbean: On Stranger Tides`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt1298650'
     },
     {
         answer: 'sound',
         id: 15,
         movie: `The Sound of Music`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0059742'
     },
     {
         answer: 'music',
         id: 16,
         movie: `The Sound of Music`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0059742'
     },
     {
         answer: 'train',
         id: 17,
         movie: `Demon Slayer: Mugen Train`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt11032374'
     },
     {
         answer: 'fatal',
         id: 18,
         movie: `Fatal Attraction`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0093010'
     },
     {
         answer: 'rocky',
         id: 19,
         movie: `Rocky`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0075148'
     },
     {
         answer: 'space',
         id: 20,
         movie: `2001: A Space Odyssey`,
-        movieId: '3b9bade6-28a0-4f2f-8211-4b5106a2cbbd'
+        movieId: 'tt0062622'
     },
     {
         answer: 'story',

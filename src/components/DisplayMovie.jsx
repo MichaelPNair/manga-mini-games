@@ -11,7 +11,6 @@ export default function DisplayMovie({movieId, movieAnswerName}) {
 
         getMovieDetailsById(movieId)
             .then(res => {
-
                 setMovieDetails(res.data)
             })
  
