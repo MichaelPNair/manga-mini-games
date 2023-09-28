@@ -25,7 +25,8 @@ export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, u
         
         getMangaSearchByText(searchText)
             .then(res => {
-                setSearchResult(res.data)
+                let filterResult = res.data.data.filter(manga => manga.attributes.tags.filter(tag => tag.attributes.name.en === 'Doujinshi').length === 0)
+                setSearchResult(filterResult.slice(0,9))
             })
     },[searchText])
 
@@ -34,7 +35,7 @@ export default function MangaSearchBar({onSubmit, searchText, isMangaSelected, u
 
     function showSearchResults(){
         if(searchResult && searchText.length > 0 && !isMangaSelected) {
-            return searchResult.data.map(datum => <MangaSearchItem
+            return searchResult.map(datum => <MangaSearchItem
                 key = {datum.id}
                 id = {datum.id} 
                 title={datum.attributes.title.en} 

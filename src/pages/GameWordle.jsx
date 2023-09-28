@@ -1233,6 +1233,9 @@ export default function GameWordle({onClickHome, user}) {
 
     const inputRef = useRef(null)
 
+    const topRef = useRef()
+    const bottomRef = useRef()
+    
     useEffect(() => {
         if (user) {
             getWinCounts()
@@ -1271,6 +1274,7 @@ export default function GameWordle({onClickHome, user}) {
         setNewGuessText('')
         setIsFinished(true)
         setIsWon(true)
+        scrollToTop()
         if(user) {
             await updateMangaWordleCount(user.username)
             setCountFromAPI(countFromAPI + 1)
@@ -1280,6 +1284,7 @@ export default function GameWordle({onClickHome, user}) {
     function handleGiveUp(){
         setNewGuessText('')
         setIsFinished(true)
+        scrollToTop()
     }
     
     function handleChange(e){
@@ -1299,6 +1304,14 @@ export default function GameWordle({onClickHome, user}) {
         }
     }
 
+    function scrollToBottom(){
+        bottomRef.current.scrollIntoView()
+    }
+
+    function scrollToTop(){
+        topRef.current.scrollIntoView()
+    }
+
     function handleSymbolClick(){
         if (newGuessText.length === 5){
             setGuesses([...guesses, newGuessText.toLowerCase()])
@@ -1307,6 +1320,9 @@ export default function GameWordle({onClickHome, user}) {
             if (newGuessText.toLowerCase() === gameAnswer.answer) {
                 handleWin()
             } else {
+                if (guesses.length > 1){
+                    scrollToBottom()
+                }
                 inputRef.current.focus()
             }
         }
@@ -1320,6 +1336,11 @@ export default function GameWordle({onClickHome, user}) {
                 setNewGuessText('')
                 if (newGuessText.toLowerCase() === gameAnswer.answer) {
                     handleWin()
+                } else {
+                    if (guesses.length > 1){
+                        scrollToBottom()
+                    }
+                    inputRef.current.focus()
                 }
             }
         }
@@ -1396,6 +1417,7 @@ export default function GameWordle({onClickHome, user}) {
 
 
     return <div className="game-wordle">
+        <div ref={topRef}></div>
         <MainTitle user={user}/>
         <BackButton onClick={onClickHome}/>
         <h2>Video Game Word Guesser</h2>
@@ -1413,6 +1435,7 @@ export default function GameWordle({onClickHome, user}) {
         <input autoFocus ref={inputRef} value={newGuessText}  hidden={isFinished} onChange={handleChange} onKeyDown={handleEnter} type="text" />
         <span hidden={!(newGuessText.length === 5)} onClick={handleSymbolClick} className="enter-symbol">⏎</span>
         <WordleKeyboard keyboardColor={keyboardColor} onClick={onKeyboardClick}/>
+        <div ref={bottomRef}></div>
 
 
     </div>
