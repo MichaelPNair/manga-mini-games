@@ -8,6 +8,7 @@
 .manga-search-bar input {
     width: 80%;
     aspect-ratio: 7/1;
+    font-size: 20px;
 }
 
 @media (min-width: 40rem) {
