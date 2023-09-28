@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import "./DisplayMovie.css"
-import getGameDetailsById from "../utils/getGameDetailsById"
+import getMovieDetailsById from "../utils/getMovieDetailsById"
 
 
 export default function DisplayMovie({movieId, movieAnswerName}) {
 
-    const [movieDetails, setMovieeDetails] = useState(null)
+    const [movieDetails, setMovieDetails] = useState(null)
 
     useEffect(() => {
 

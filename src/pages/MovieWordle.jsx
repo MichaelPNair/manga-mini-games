@@ -644,7 +644,7 @@ export default function MovieWordle({onClickHome, user}) {
         <h2>Movie Word Guesser</h2>
         <button disabled={!isFinished} onClick={handleNewGame}>New Random Game</button>
         <button disabled={isFinished} onClick={handleGiveUp}>Give Up</button>
-        <p>Guess the word</p>
+        <p>{`Guess the word! (Bonus challenge: Name a movie with each guess)`}</p>
         {gameIdSelect(selectedId)}
         {user && <p>You have won {countFromAPI} times</p>}
         <p>{isWon && `Congratulations! The word was ${gameAnswer.answer[0].toUpperCase()}${gameAnswer.answer.substring(1)}!`}</p>
