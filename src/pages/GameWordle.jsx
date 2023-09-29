@@ -1320,7 +1320,7 @@ export default function GameWordle({onClickHome, user}) {
             if (newGuessText.toLowerCase() === gameAnswer.answer) {
                 handleWin()
             } else {
-                if (guesses.length > 1){
+                if (guesses.length > 0){
                     scrollToBottom()
                 }
                 inputRef.current.focus()
@@ -1337,7 +1337,7 @@ export default function GameWordle({onClickHome, user}) {
                 if (newGuessText.toLowerCase() === gameAnswer.answer) {
                     handleWin()
                 } else {
-                    if (guesses.length > 1){
+                    if (guesses.length > 0){
                         scrollToBottom()
                     }
                     inputRef.current.focus()
